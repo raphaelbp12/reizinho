@@ -1,0 +1,24 @@
+{
+  "name": "reinel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "restangular": "^1.6.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/raphaelbp12/reizinho.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/raphaelbp12/reizinho/issues"
+  },
+  "homepage": "https://github.com/raphaelbp12/reizinho#readme"
+}
