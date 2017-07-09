@@ -9,7 +9,9 @@ angular.module('App').controller('indexController', ['$scope', 'DataService', fu
     $scope.activeMenu = {};
 
     $scope.changeActiveMenu = function (newActiveMenu) {
-        $scope.activeMenu = newActiveMenu;
+        $scope.$apply(function () {
+            $scope.activeMenu = newActiveMenu;
+        });
 
         console.log('$scope.activeMenu', $scope.activeMenu);
     };
