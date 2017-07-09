@@ -1,13 +1,22 @@
-angular.module('App').directive("slider", ['DataService', function(DataService) {
+angular.module('App').directive("slider", ['DataService', 'Common', function(DataService, Common) {
     return {
         scope: {
             data: '='
         },
-        controller: ['$scope', 'DataService', function SliderController($scope, DataService) {
-            $scope.calcURL = function(path, filename){
-                return DataService.WPURL + path + "/" + filename;
-            }
+        controller: ['$scope', 'DataService', 'Common', function SliderController($scope, DataService, Common) {
+            $scope.calcURL = Common.calcURL;
+            $(document).ready(function () {
+                 $('#slider').slick({
+                    "slidesToShow": 1,
+                    "slidesToScroll": 1,
+                    "arrows": true,
+                    "autoplay": true,
+                    "autoplaySpeed": 500,
+                    "dots": true,
+                    "dotsClass": 'full-width-slider-dots'
+                });
+            });
         }],
-        template : "<div ng-repeat='item in data' id='slider'><img src='{{calcURL(item.path, item.filename)}}' /></div>"
+        templateUrl : 'Sections/slider.html'
     };
 }]);

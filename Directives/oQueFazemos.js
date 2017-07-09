@@ -6,6 +6,6 @@ angular.module('App').directive("oQueFazemos", ['DataService', function(DataServ
         controller: ['$scope', 'DataService', function OQueFazemosController($scope, DataService) {
 
         }],
-        template : "<div id='oQueFazemos'>Text: {{data.text}}</div>"
+        templateUrl : 'Sections/oQueFazemos.html'
     };
 }]);

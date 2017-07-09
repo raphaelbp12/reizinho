@@ -1,0 +1,6 @@
+<div id='nossasBandas'>
+  <div ng-repeat='gallery in galleries_nossasBandas'>
+    <h1>{{gallery.name}}</h1>
+    <img ng-repeat='image in gallery.images' src='{{image.url}}'>
+  </div>
+</div>
