@@ -23,6 +23,4 @@ angular.module('App').service('DataService', ['$http', function ($http) {
             });
         });
     };
-}]);/**
- * Created by raphaelbp12 on 7/9/2017.
- */
+}]);

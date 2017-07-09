@@ -1,4 +1,4 @@
-angular.module('App').directive('sectionGenerator', function($compile) {
+angular.module('App').directive('sectionGenerator', ['$compile', function($compile) {
     return {
         scope: {
             section: '='
@@ -7,4 +7,4 @@ angular.module('App').directive('sectionGenerator', function($compile) {
             element.append($compile('<div '+scope.section.tipo+' data="section.data"></div>')(scope));
         }
     };
-});
+}]);

@@ -1,4 +1,4 @@
-angular.module('App').directive("slider", function(DataService) {
+angular.module('App').directive("slider", ['DataService', function(DataService) {
     return {
         scope: {
             data: '='
@@ -10,4 +10,4 @@ angular.module('App').directive("slider", function(DataService) {
         }],
         template : "<div ng-repeat='item in data'><img src='{{calcURL(item.path, item.filename)}}' /></div>"
     };
-});
+}]);
