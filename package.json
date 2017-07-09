@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
     "restangular": "^1.6.1"
   },
   "devDependencies": {},

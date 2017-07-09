@@ -6,6 +6,6 @@ angular.module('App').directive("contato", ['DataService', function(DataService)
         controller: ['$scope', 'DataService', function ContatoController($scope, DataService) {
 
         }],
-        template : "<div>Text: {{data.text}}</div>"
+        template : "<div id='contato'>Text: {{data.text}}</div>"
     };
 }]);

@@ -8,6 +8,6 @@ angular.module('App').directive("slider", ['DataService', function(DataService) 
                 return DataService.WPURL + path + "/" + filename;
             }
         }],
-        template : "<div ng-repeat='item in data'><img src='{{calcURL(item.path, item.filename)}}' /></div>"
+        template : "<div ng-repeat='item in data' id='slider'><img src='{{calcURL(item.path, item.filename)}}' /></div>"
     };
 }]);

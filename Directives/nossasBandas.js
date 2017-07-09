@@ -43,6 +43,6 @@ angular.module('App').directive("nossasBandas", ['DataService', function(DataSer
             $scope.calcGalleries($scope.data.galerias);
 
         }],
-        template : "<div><div ng-repeat='gallery in galleries'><h1>{{gallery.name}}</h1><img ng-repeat='image in gallery.images' src='{{image.url}}'></div> </div>"
+        template : "<div id='nossasBandas'><div ng-repeat='gallery in galleries'><h1>{{gallery.name}}</h1><img ng-repeat='image in gallery.images' src='{{image.url}}'></div> </div>"
     };
 }]);
