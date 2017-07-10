@@ -21,3 +21,68 @@
     background: rgba(0, 0, 0, 0.78);
     height: 50px;
 }
+
+.section {
+}
+
+.quemSomos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 110px 0 110px 0;
+  align-items: center;
+}
+
+
+.nossasBandas{
+  padding: 110px 0 110px 0;
+}
+
+
+.fundo-opaco{
+    background: rgba(0,0,0,0.1);
+}
+
+.quemSomos div{
+  max-width: 450px;
+  text-align: justify;
+}
+
+.galeria{
+  padding: 60px 30px 0 30px;
+  display:flex;
+  flex-direction: row;
+  align-content: flex-start;
+  overflow:auto;
+  width: 80%;
+}
+
+.galeria img{
+  height: 200px;
+  width: 200px;
+}
+.galeria div+div{
+  margin-left: 10px;
+}
+
+.container-galerias{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 80%;
+}
+.container-galerias img {
+  max-height: 200px;
+  width: auto;
+}
+
+.centralizado{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.galeria-preview{
+  text-align: center;
+}

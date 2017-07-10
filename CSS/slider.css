@@ -91,3 +91,7 @@
     background-size: cover;
     background-position: 50%;
 }
+
+.slick-dotted.slick-slider{
+  margin-bottom: 0;
+}
