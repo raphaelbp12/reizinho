@@ -13,7 +13,7 @@ angular.module('App').controller('indexController', ['$scope', 'DataService', fu
             $scope.activeMenu = newActiveMenu;
         });
 
-        console.log('$scope.activeMenu', $scope.activeMenu);
+        //console.log('$scope.activeMenu', $scope.activeMenu);
     };
 
     function isScrolledIntoViewById(id) {
