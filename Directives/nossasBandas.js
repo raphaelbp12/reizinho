@@ -10,10 +10,9 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
             $scope.modalShow = false;
             $scope.modalImageIndex = 1;
 
-            $scope.gallerySelected = $scope.galleries_nossasBandas[1];
+            $scope.gallerySelected = $scope.galleries_nossasBandas[0];
 
             $scope.changeGallery = function (id) {
-                if ($scope.galleries_nossasBandas[id].id != $scope.gallerySelected.id) {
                     $scope.gallerySelected.images.forEach(function (image, imageIndex) {
                         $('#galeria-nossasBandas').slick('slickRemove',0);
                     });
@@ -30,7 +29,6 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                             $scope.showModal(e.target.id);
                         });
                     });
-                }
             };
 
 

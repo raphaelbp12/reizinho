@@ -86,12 +86,12 @@
 }
 
 .slider-item {
-    height: 90vh;
+    height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
 }
 
 .slick-dotted.slick-slider{
-  /*margin-bottom: 0;*/
+  margin-bottom: 0;
 }
