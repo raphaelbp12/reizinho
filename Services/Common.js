@@ -32,7 +32,7 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
                 galleries.push({
                     id: galleries.length,
                     name: image.title,
-                    images: cover ? [img] : [],
+                    images: cover ? [] : [img],
                     cover: cover? img : null
                 });
 

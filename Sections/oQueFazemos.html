@@ -1,1 +1,15 @@
-<div id='oQueFazemos'>Text: {{data.text}}</div>
+<div id='oQueFazemos' class="section centralizado oQueFazemos">
+  <div class="container-galerias">
+    <div ng-repeat='gallery in galleries_oQueFazemos' class="galeria-preview" ng-click="changeGallery(gallery.id)">
+      <h3>{{gallery.name}}</h3>
+      <img src='{{gallery.cover.url}}'>
+    </div>
+
+  </div>
+
+  <div class="galeria" id="galeria-oQueFazemos">
+  </div>
+
+
+  <div>Text: {{data.text}}</div>
+</div>

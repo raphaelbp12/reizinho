@@ -25,25 +25,8 @@
 .section {
 }
 
-.quemSomos {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 110px 0 110px 0;
-    align-items: center;
-}
-
-.nossasBandas {
-    padding: 110px 0 110px 0;
-}
-
 .fundo-opaco {
     background: rgba(0, 0, 0, 0.1);
-}
-
-.quemSomos div {
-    max-width: 450px;
-    text-align: justify;
 }
 
 .galeria {
@@ -53,7 +36,7 @@
     /*align-content: flex-start;*/
     /*overflow:auto;*/
     width: 80%;
-    margin-top: 30px;
+    margin: 30px 0 30px 0;
 }
 
 .galeria img {

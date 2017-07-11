@@ -1,0 +1,11 @@
+.quemSomos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 110px 0 110px 0;
+    align-items: center;
+}
+.quemSomos div {
+    max-width: 450px;
+    text-align: justify;
+}

@@ -10,6 +10,10 @@
     <link href="CSS/index.css" rel="stylesheet">
     <link href="CSS/slider.css" rel="stylesheet">
     <link href="CSS/nossasBandas.css" rel="stylesheet">
+    <link href="CSS/oQueFazemos.css" rel="stylesheet">
+    <link href="CSS/quemSomos.css" rel="stylesheet">
+    <link href="CSS/contato.css" rel="stylesheet">
+    <link href="CSS/footer.css" rel="stylesheet">
 </head>
 <body ng-app="App" ng-controller="indexController">
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -26,6 +30,7 @@
 </nav>
 <div>
     <section-generator section="item" ng-repeat="item in dataService.data"></section-generator>
+    <div footer></div>
 </div>
 
 
@@ -40,10 +45,11 @@
 <script src="Controllers/indexController.js"></script>
 <script src="Directives/slider.js"></script>
 <script src="Directives/quemSomos.js"></script>
-<script src="Directives/oQueFazemos.js"></script>
 <script src="Directives/sectionGenerator.js"></script>
 <script src="Directives/contato.js"></script>
+<script src="Directives/oQueFazemos.js"></script>
 <script src="Directives/nossasBandas.js"></script>
+<script src="Directives/footer.js"></script>
 <script src="Services/DataService.js"></script>
 <script src="Services/Common.js"></script>
 </body>
