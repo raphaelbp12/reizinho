@@ -49,21 +49,18 @@
     margin-left: 10px;
 }
 
-.container-galerias {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-    width: auto;
+
+.container-galerias{
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row;
+      width: auto;
 }
 
 .container-galerias div + div {
   margin-left: 10px;
 }
 
-.container-galerias img {
-    max-height: 200px;
-    width: auto;
-}
 
 .centralizado {
     display: flex;
@@ -78,4 +75,8 @@
 
 .slick-track {
     display: flex;
+}
+
+.rounded {
+  border-radius: 50%;
 }

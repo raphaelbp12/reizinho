@@ -24,8 +24,8 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', functio
 
           $(document).ready(function (){
             $('#galeria-oQueFazemos').slick({
-                "slidesToShow": 1,
-                "slidesToScroll": 1,
+                "slidesToShow": 3,
+                "slidesToScroll": 3,
                 "arrows": true,
                 "autoplay": true,
                 "autoplaySpeed": 500,

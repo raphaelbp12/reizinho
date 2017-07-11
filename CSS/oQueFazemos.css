@@ -7,5 +7,16 @@
 }
 
 .oQueFazemos{
-  
+  padding: 60px 0 60px 0;
+}
+
+.container-galerias-oQueFazemos img {
+    max-height: 100px;
+    width: auto;
+}
+
+.text-oQueFazemos{
+  margin-top: 60px;
+  max-width: 80%;
+  text-align:center;
 }

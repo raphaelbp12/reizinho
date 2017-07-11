@@ -1,5 +1,5 @@
 <div id='nossasBandas' class="section centralizado nossasBandas">
-    <div class="container-galerias">
+    <div class="container-galerias container-galerias-nossasBandas">
         <div ng-repeat='gallery in galleries_nossasBandas' class="galeria-preview" ng-click="changeGallery(gallery.id)">
             <h3>{{gallery.name}}</h3>
             <img src='{{gallery.cover.url}}'>
@@ -10,4 +10,5 @@
   </div>
   <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected"></div>
 
+  <div class="text-nossasBandas">Text: {{data.text}}</div>
 </div>
