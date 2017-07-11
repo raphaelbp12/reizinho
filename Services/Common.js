@@ -2,6 +2,11 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
 
     var self = this;
     self.COVER_STRING = '#img_cover_gallery#';
+
+    self.modalAlreadyOpened = false;
+    self.modalSelectedGallery = {};
+    self.modalImageIndex = 0;
+
     self.calcURL = function(path, filename){
         return DataService.WPURL + path + "/" + filename;
     };

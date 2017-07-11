@@ -3,11 +3,14 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
         scope: {
             data: '='
         },
-        controller: ['$scope', 'DataService', 'Common', function NossasBandasController($scope, DataService, Common) {
+        controller: ['$scope', 'DataService', 'Common', 'ModalService', function NossasBandasController($scope, DataService, Common, ModalService) {
             $scope.galleries_nossasBandas = [];
             Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas);
 
-            $scope.gallerySelected = $scope.galleries_nossasBandas[0];
+            $scope.modalShow = false;
+            $scope.modalImageIndex = 1;
+
+            $scope.gallerySelected = $scope.galleries_nossasBandas[1];
 
             $scope.changeGallery = function (id) {
                 if ($scope.galleries_nossasBandas[id].id != $scope.gallerySelected.id) {
@@ -18,9 +21,21 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                     $scope.gallerySelected = $scope.galleries_nossasBandas[id];
 
                     $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                        $('.galeria').slick('slickAdd',"<div  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
+                        $('.galeria').slick('slickAdd',"<div id='"+imageIndex+"'  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
+                    });
+
+                    $('.nossasBandas-gallery-item').click(function (e) {
+                        console.log('click item', e.target.id);
+                        $scope.$apply(function () {
+                            $scope.showModal(e.target.id);
+                        });
                     });
                 }
+            };
+
+            $scope.showModal = function(index) {
+                $scope.modalImageIndex = index;
+                $scope.modalShow = true;
             };
 
             $(document).ready(function () {
@@ -33,9 +48,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                     "dots": true
                 });
 
-                $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                    $('.galeria').slick('slickAdd',"<div  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
-                });
+                $scope.changeGallery(0);
             });
 
         }],

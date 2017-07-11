@@ -1,13 +1,15 @@
 <div id='nossasBandas' class="section centralizado nossasBandas">
-  <div class="container-galerias">
-    <div ng-repeat='gallery in galleries_nossasBandas' class="galeria-preview" ng-click="changeGallery(gallery.id)">
-      <h3>{{gallery.name}}</h3>
-      <img src='{{gallery.cover.url}}'>
+    <div class="container-galerias">
+        <div ng-repeat='gallery in galleries_nossasBandas' class="galeria-preview" ng-click="changeGallery(gallery.id)">
+            <h3>{{gallery.name}}</h3>
+            <img src='{{gallery.cover.url}}'>
+        </div>
     </div>
-  </div>
 
-  <div class="galeria">
-    <div  class='nossasBandas-gallery-item' style='background-image: url({{image.url}})'></div>
-  </div>
+    <div class="galeria">
+    </div>
+
+    <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected"></div>
+
 
 </div>

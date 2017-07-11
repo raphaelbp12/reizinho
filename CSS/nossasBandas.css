@@ -5,3 +5,7 @@
     background-size: cover;
     background-position: 50%;
 }
+
+.galeriaModal {
+    height: 90vh;
+}
