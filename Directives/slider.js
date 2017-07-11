@@ -1,4 +1,4 @@
-angular.module('App').directive("slider", ['DataService', 'Common', function(DataService, Common) {
+angular.module('App').directive("slider", ['DataService', 'Common', function (DataService, Common) {
     return {
         scope: {
             data: '='
@@ -6,17 +6,19 @@ angular.module('App').directive("slider", ['DataService', 'Common', function(Dat
         controller: ['$scope', 'DataService', 'Common', function SliderController($scope, DataService, Common) {
             $scope.calcURL = Common.calcURL;
             $(document).ready(function () {
-                 $('#slider').slick({
+                $('#slider').slick({
                     "slidesToShow": 1,
                     "slidesToScroll": 1,
                     "arrows": true,
                     "autoplay": true,
                     "autoplaySpeed": 500,
                     "dots": true,
-                    "dotsClass": 'full-width-slider-dots'
+                    "dotsClass": 'full-width-slider-dots',
+                    "pauseOnHover": false,
+                    "pauseOnDotsHover": true
                 });
             });
         }],
-        templateUrl : 'Sections/slider.html'
+        templateUrl: 'Sections/slider.html'
     };
 }]);
