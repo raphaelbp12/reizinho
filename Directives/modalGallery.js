@@ -19,11 +19,12 @@ angular.module('App').directive("modalGallery", [function() {
                     "slidesToShow": 1,
                     "slidesToScroll": 1,
                     "arrows": true,
-                    "dots": true
+                    "dots": true,
+                    "dotsClass": 'directive-modal-gallery-dots slick-dots'
                 });
 
                 $scope.gallery.images.forEach(function (image, imageIndex) {
-                    $('#modalGallery').slick('slickAdd',"<div id='"+imageIndex+"' class='nossasBandas-modal-gallery-item' style='background-image: url("+image.url+")'></div>");
+                    $('#modalGallery').slick('slickAdd',"<div id='"+imageIndex+"' class='directive-modal-gallery-item' style='background-image: url("+image.url+")'></div>");
                 });
 
                 $scope.oldGallery = $scope.gallery;
@@ -34,7 +35,7 @@ angular.module('App').directive("modalGallery", [function() {
                     });
 
                     $scope.gallery.images.forEach(function (image, imageIndex) {
-                        $('#modalGallery').slick('slickAdd',"<div id='"+imageIndex+"' class='nossasBandas-modal-gallery-item' style='background-image: url("+image.url+")'></div>");
+                        $('#modalGallery').slick('slickAdd',"<div id='"+imageIndex+"' class='directive-modal-gallery-item' style='background-image: url("+image.url+")'></div>");
                     });
 
 
