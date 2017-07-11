@@ -21,8 +21,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                     $scope.gallerySelected = $scope.galleries_nossasBandas[id];
 
                     $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-
-                        $('#galeria-nossasBandas').slick('slickAdd',"<div  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
+                        $('#galeria-nossasBandas').slick('slickAdd',"<div id='"+imageIndex+"'  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
                     });
 
                     $('.nossasBandas-gallery-item').click(function (e) {
