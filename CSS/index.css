@@ -71,3 +71,7 @@
 .galeria-preview {
     text-align: center;
 }
+
+.slick-track {
+    display: flex;
+}
