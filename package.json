@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-modal-service": "^0.12.1",
     "restangular": "^1.6.1"
   },
   "devDependencies": {},
