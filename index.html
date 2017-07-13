@@ -15,11 +15,12 @@
     <link href="CSS/contato.css" rel="stylesheet">
     <link href="CSS/footer.css" rel="stylesheet">
     <link href="CSS/modalGallery.css" rel="stylesheet">
+    <link href="CSS/menu.css" rel="stylesheet">
 </head>
 <body ng-app="App" ng-controller="indexController">
 
 <div class="main">
-    <section-generator section="item" ng-repeat="item in dataService.data"></section-generator>
+    <section-generator section="item" general="dataService.generalInfo" ng-repeat="item in dataService.data"></section-generator>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"

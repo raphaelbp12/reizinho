@@ -3,6 +3,7 @@ angular.module('App').service('DataService', ['$http', function ($http) {
     var self = this;
 
     self.data = {};
+    self.generalInfo = {};
     self.loadingData = false;
 
     self.WPURL = "http://34.229.92.175";
@@ -17,6 +18,7 @@ angular.module('App').service('DataService', ['$http', function ($http) {
             headers: {'Content-Type': 'application/json;'}
         }).then(function(restsData) {
             self.loadingData = false;
+            self.generalInfo = restsData.data.general_info;
             self.data = restsData.data.data;
             restsData.data.data.forEach(function (item) {
                 console.log("response", item);

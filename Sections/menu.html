@@ -1,12 +1,26 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav text-menu">
             <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-            <li ng-class="{'active': activeMenu.slider}"><a href="#slider">Slider</a></li>
-            <li ng-class="{'active': activeMenu.quemSomos}"><a href="#quemSomos">Quem Somos</a></li>
-            <li ng-class="{'active': activeMenu.nossasBandas}"><a href="#nossasBandas">Nossas Bandas</a></li>
-            <li ng-class="{'active': activeMenu.oQueFazemos}"><a href="#oQueFazemos">O Que Fazemos</a></li>
-            <li ng-class="{'active': activeMenu.contato}"><a href="#contato">Contato</a></li>
+            <!-- <li ng-class="{'active': activeMenu.slider}"><a href="#slider">Slider</a></li> -->
+
+            <li ng-class="{'active': activeMenu[item.post_name]}"
+            ng-repeat="item in data" ng-if="$index < (data.length / 2)"><a href="{{item.url}}">{{item.title}}</a></li>
+
+            <li id="logo" ng-class="{'active': activeMenu.home}"><a href="#slider"><img src="{{general.logo}}" class="img-logo"></a></li>
+
+
+            <li ng-class="{'active': activeMenu[item.post_name]}"
+            ng-repeat="item in data" ng-if="$index > (data.length / 2) || $index == (data.length / 2)"><a href="item.url">{{item.title}}</a></li>
+
+
+
+            <!-- <li ng-class="{'active': activeMenu.quemSomos}"><a href="#quemSomos">Quem Somos</a></li> -->
+            <!-- <li ng-class="{'active': activeMenu.nossasBandas}"><a href="#nossasBandas">Nossas Bandas</a></li> -->
+
+
+            <!-- <li ng-class="{'active': activeMenu.oQueFazemos}"><a href="#oQueFazemos">O Que Fazemos</a></li> -->
+            <!-- <li ng-class="{'active': activeMenu.contato}"><a href="#contato">Contato</a></li> -->
         </ul>
     </div>
 </nav>
