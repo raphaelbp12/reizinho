@@ -7,11 +7,18 @@ angular.module('App').directive("modalGallery", [function() {
         },
         controller: ['$scope', function ModalGalleryController($scope) {
             $scope.triggerOpacity = true;
+            $scope.modalId = Math.floor((Math.random() * 1000) + 1);
+
             $scope.closeModal = function () {
                 $scope.show = false;
             };
 
             $scope.oldGallery = {};
+
+            $scope.teste = function(e, that){
+                console.log('event', e, that);
+                //if(e.currentTarget === 'div#553.ac-modal.active')
+            }
 
             $(document).ready(function () {
 
@@ -49,6 +56,14 @@ angular.module('App').directive("modalGallery", [function() {
                 })
             });
         }],
-        templateUrl : 'Templates/modalGallery.html'
+        templateUrl : 'Templates/modalGallery.html',
+        link: function($scope, $element, $attrs, ctrl) {
+            $scope.clickOutsideModal = function(e){
+                //console.log('event1', e, $element, e.target === $element[0].firstElementChild);
+                if(e.target === $element[0].firstElementChild){
+                    $scope.closeModal();
+                }
+            }
+        }
     };
 }]);
