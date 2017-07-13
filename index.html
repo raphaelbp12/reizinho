@@ -17,21 +17,9 @@
     <link href="CSS/modalGallery.css" rel="stylesheet">
 </head>
 <body ng-app="App" ng-controller="indexController">
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
-            <li ng-class="{'active': activeMenu.slider}"><a href="#slider">Slider</a></li>
-            <li ng-class="{'active': activeMenu.quemSomos}"><a href="#quemSomos">Quem Somos</a></li>
-            <li ng-class="{'active': activeMenu.nossasBandas}"><a href="#nossasBandas">Nossas Bandas</a></li>
-            <li ng-class="{'active': activeMenu.oQueFazemos}"><a href="#oQueFazemos">O Que Fazemos</a></li>
-            <li ng-class="{'active': activeMenu.contato}"><a href="#contato">Contato</a></li>
-        </ul>
-    </div>
-</nav>
+
 <div class="main">
     <section-generator section="item" ng-repeat="item in dataService.data"></section-generator>
-    <div footer></div>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -46,6 +34,7 @@
 <script src="app.js"></script>
 <script src="Controllers/indexController.js"></script>
 <!--<script src="Controllers/ModalController.js"></script>-->
+<script src="Directives/menu.js"></script>
 <script src="Directives/slider.js"></script>
 <script src="Directives/quemSomos.js"></script>
 <script src="Directives/sectionGenerator.js"></script>
