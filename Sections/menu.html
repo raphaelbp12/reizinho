@@ -11,7 +11,7 @@
 
 
             <li ng-class="{'active': activeMenu[item.post_name]}"
-            ng-repeat="item in data" ng-if="$index > (data.length / 2) || $index == (data.length / 2)"><a href="item.url">{{item.title}}</a></li>
+            ng-repeat="item in data" ng-if="$index > (data.length / 2) || $index == (data.length / 2)"><a href="{{item.url}}">{{item.title}}</a></li>
 
 
 
