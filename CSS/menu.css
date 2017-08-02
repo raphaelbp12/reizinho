@@ -7,7 +7,7 @@
 }
 
 .li-not-scrolled{
-    padding-top: 30px;
+    padding-top: 40px;
     -webkit-transition: all 0.6s ease-out;
     -moz-transition: all 0.6s ease-out;
     -o-transition: all 0.6s ease-out;
@@ -16,7 +16,54 @@
 }
 
 nav.scrolled li {
-    height: 50px;
+    /*height: 50px;*/
+    padding-top: 20px;
+}
+
+.navbar li {
+
+}
+
+.navbar {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.8+56,0+100 */
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%,  rgba(0, 0, 0, 0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.9) 0%,  rgba(0, 0, 0, 0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9) 0%,  rgba(0, 0, 0, 0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+
+    height: 100px;
+    border: none;
+    z-index: 11;
+
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+
+}
+
+.navbar.scrolled {
+    /*background: rgb(68, 68, 68);
+    background: rgba(0, 0, 0, 0.78);
+    */
+    height: 90px;
+}
+
+.navbar.scrolled li#logo img {
+    width: 50px;
+    height: auto;
+}
+
+.navbar li#logo img {
+    width: 100px;
+    height: auto;
+
+    -webkit-transition: all 0.6s ease-out;
+    -moz-transition: all 0.6s ease-out;
+    -o-transition: all 0.6s ease-out;
+    -ms-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
 }
 
 .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
@@ -57,4 +104,7 @@ nav.scrolled li {
 /*Não alterar o fundo ao ativar o item central do menu(logo)*/
 #logo a, #logo{
   background-color: transparent !important;
+}
+#logo {
+  padding-top: 10px;
 }

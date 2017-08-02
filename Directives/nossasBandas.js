@@ -39,8 +39,8 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
 
             $(document).ready(function () {
                 $('#galeria-nossasBandas').slick({
-                    "slidesToShow": 3,
-                    "slidesToScroll": 3,
+                    "slidesToShow": 5,
+                    "slidesToScroll": 5,
                     "arrows": true,
                     "autoplay": true,
                     "autoplaySpeed": 500,
