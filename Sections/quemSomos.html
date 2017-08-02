@@ -1,13 +1,26 @@
 <div id='quem-somos' class='section quemSomos'>
 
-  <div>
-    Text: {{data.text}}
-  </div>
+    <div>
+        Text: {{data.text}}
+    </div>
 
-  <div class="fundo-opaco">
-    <h4>NOSSA VISÃO</h4>{{data.visao}}<br>
-    <h4>NOSSA MISSÃO</h4>{{data.missao}}<br>
-    <h4>NOSSOS VALORES</h4>{{data.valores}}<br>
-  </div>
+    <div>
+        <!--<h4>NOSSA VISÃO</h4>{{data.visao}}<br>-->
+        <!--<h4>NOSSA MISSÃO</h4>{{data.missao}}<br>-->
+        <!--<h4>NOSSOS VALORES</h4>{{data.valores}}<br>-->
+        <div class="ac-quemsomos-button" ng-click="toggleVisao()">
+            Nossa Visão <span aria-hidden="true"
+                              class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
+            <div class="ac-quemsomos-text" ng-class="visaoCtrl ? 'active' : ''">{{data.visao}}</div>
+        </div>
+        <div class="ac-quemsomos-button" ng-click="toggleMissao()">Nossa Missão <span aria-hidden="true"
+                                                            class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
+            <div class="ac-quemsomos-text" ng-class="missaoCtrl ? 'active' : ''">{{data.missao}}</div>
+        </div>
+        <div class="ac-quemsomos-button" ng-click="toggleValores()">Nossos Valores <span aria-hidden="true"
+                                                              class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
+            <div class="ac-quemsomos-text" ng-class="valoresCtrl ? 'active' : ''">{{data.valores}}</div>
+        </div>
+    </div>
 
 </div>
