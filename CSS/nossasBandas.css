@@ -1,5 +1,5 @@
 .nossasBandas-gallery-item{
-    width: 250px;
+    width: auto;
     height: 250px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -9,7 +9,8 @@
 
 .nossasBandas{
   padding: 80px 0 60px 0;
-  background: rgb(211,211,211);
+  background: rgb(57, 59, 65);
+  color: #fff;
 }
 
 .galeriaModal {
@@ -28,5 +29,27 @@
 }
 
 .nossasBandas .galeria {
-  width: 1250px;
+  width: 90%;
+}
+
+.ribbon-border{
+  margin-top: 20px;
+  width: 220px;
+  height: 5px;
+  background: -moz-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+
+}
+
+.slick-dots {
+  position: absolute;
+  bottom: -20px;
+  right: 0px;
+  width: auto;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #fff;
 }
