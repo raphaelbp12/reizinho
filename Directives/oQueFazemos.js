@@ -17,7 +17,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', functio
                   $scope.gallerySelected = $scope.galleries_oQueFazemos[id];
 
                   $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                      $('#galeria-oQueFazemos').slick('slickAdd',"<div  class='oQueFazemos-gallery-item' style='background-image: url("+image.url+")'></div>");
+                      $('#galeria-oQueFazemos').slick('slickAdd',"<div  class='oQueFazemos-gallery-item' style='background-image: url("+image.url_thumb+")'></div>");
                   });
           };
 

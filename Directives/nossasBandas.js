@@ -20,7 +20,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                     $scope.gallerySelected = $scope.galleries_nossasBandas[id];
 
                     $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                        $('#galeria-nossasBandas').slick('slickAdd',"<div id='"+imageIndex+"'  class='nossasBandas-gallery-item' style='background-image: url("+image.url+")'></div>");
+                        $('#galeria-nossasBandas').slick('slickAdd',"<div id='"+imageIndex+"'  class='nossasBandas-gallery-item' style='background-image: url("+image.url_thumb+")'></div>");
                     });
 
                     $('.nossasBandas-gallery-item').click(function (e) {
@@ -45,14 +45,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', functi
                     "autoplay": true,
                     "autoplaySpeed": 500,
                     "dots": true,
-                    "responsive": [
-                      {
-                        breakpoint: 1366,
-                        settings: {
-                          slidesToShow: 4,
-                          slidesToScroll: 4
-                        }
-                      },
+                    responsive: [
                       {
                         breakpoint: 1024,
                         settings: {

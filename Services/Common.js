@@ -7,6 +7,10 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
     self.modalSelectedGallery = {};
     self.modalImageIndex = 0;
 
+    self.calcThumbURL = function(path, filename){
+        return DataService.WPURL + path + "/thumbs/thumbs_" + filename;
+    };
+
     self.calcURL = function(path, filename){
         return DataService.WPURL + path + "/" + filename;
     };
@@ -18,6 +22,7 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
             var img = {
                 gallery: image.title,
                 url: self.calcURL(image.path, image.filename),
+                url_thumb: self.calcThumbURL(image.path, image.filename),
                 description: image.description,
                 alttext: image.alttext
             }
