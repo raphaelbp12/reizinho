@@ -25,4 +25,15 @@ angular.module('App').service('DataService', ['$http', function ($http) {
             });
         });
     };
+
+    self.sendEmail = function (data) {
+        $http({
+            method: "POST",
+            url: self.WPURL+"/email/",
+            headers: {'Content-Type': 'application/json;'},
+            data: data
+        }).then(function(res) {
+            console.log(res);
+        });
+    };
 }]);

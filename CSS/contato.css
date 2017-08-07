@@ -1,6 +1,7 @@
 .contato {
   padding: 110px 0 110px 0;
-  background: rgb(211,211,211);
+  background: rgb(57, 59, 65);
+  color: #fff;
 }
 
 .contato-container {
@@ -8,10 +9,40 @@
   justify-content: center;
   flex-direction: row;
   width: 100%;
-  height: 400px;
+  height: auto;
 }
 
-.contato-container div {
+.contato-container > div {
+  padding: 0px 30px 0 30px;
+}
+
+.contact-precisa{
+  display:flex;
+  flex-direction: row;
+}
+
+.full-width{
   width: 100%;
-  height: 100%;
+}
+
+.div-check{
+  display: flex;
+  flex-direction: column;
+}
+
+.checkbox {
+  font-size: 11px;
+  margin: 0 0 5px 0;
+}
+.form-group label {
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+.table-contato td{
+  padding: 0 10px 0 10px;
 }
