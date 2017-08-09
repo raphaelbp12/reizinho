@@ -46,3 +46,33 @@
 .table-contato td{
   padding: 0 10px 0 10px;
 }
+.enviando-email{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.enviando-email img{
+  width: 20px;
+  height: 20px;
+}
+
+.mensagem-contato{
+  padding: 20px 10px 20px 10px;
+  border-radius: 25px;
+  background-color: #fff;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.green-div{
+  border: 2px solid green;
+  color: green;
+}
+
+.red-div{
+  border: 2px solid red;
+  color: red;
+}

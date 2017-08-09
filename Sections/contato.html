@@ -2,89 +2,99 @@
   <div class="contato-container">
     <div class="col-md-6"></div>
     <div class="col-md-6">
-      <form class="form-contato" name="form" >
-        <table class="full-width table-contato">
-          <tr>
-            <td>
-              <div class="form-group">
-                <label for="nome">Nome:</label>
-                <input type="text" class="form-control  input-sm" id="nome"  ng-model="email.nome" ng-required="true" />
-              </div>
-            </td>
-            <td>
-              <div class="form-group">
-                <label for="email">E-mail:</label>
-                <input type="email" class="form-control input-sm" id="email" ng-model="email.email" ng-required="true" />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group">
-                <label for="telefone">Telefone:</label>
-                <input type="tel" class="form-control input-sm" id="telefone" ng-model="email.telefone" ng-required="true" />
-              </div>
-            </td>
 
-            <td>
-              <div class="form-group">
-                <label for="data">Data do evento: </label>
-                <input type="date" class="form-control input-sm" id="data" ng-model="email.data" ng-required="true" />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div class="form-group">
-                <label for="local">Local do evento: </label>
-                <input type="text" class="form-control input-sm" id="local" ng-model="email.local" ng-required="true" />
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <div class="form-group">
-                <label for="tipos">Tipo de evento:</label>
-                <select class="form-control input-sm" ng-model="email.tipo" id="tipos" ng-required="true">
-                  <option ng-repeat="tipo in data.tipo">{{tipo}}</option>
-                </select>
-              </div>
-            </td>
+      <div ng-show="showForm">
+        <form  class="form-contato" name="form" >
+          <table class="full-width table-contato">
+            <tr>
+              <td>
+                <div class="form-group">
+                  <label for="nome">Nome:</label>
+                  <input type="text" class="form-control  input-sm" id="nome"  ng-model="email.nome" ng-required="true" />
+                </div>
+              </td>
+              <td>
+                <div class="form-group">
+                  <label for="email">E-mail:</label>
+                  <input type="email" class="form-control input-sm" id="email" ng-model="email.email" ng-required="true" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-group">
+                  <label for="telefone">Telefone:</label>
+                  <input type="tel" class="form-control input-sm" id="telefone" ng-model="email.telefone" ng-required="true" />
+                </div>
+              </td>
 
-            <td>
+              <td>
+                <div class="form-group">
+                  <label for="data">Data do evento: </label>
+                  <input type="date" class="form-control input-sm" id="data" ng-model="email.data" ng-required="true" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="form-group">
+                  <label for="local">Local do evento: </label>
+                  <input type="text" class="form-control input-sm" id="local" ng-model="email.local" ng-required="true" />
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="form-group">
+                  <label for="tipos">Tipo de evento:</label>
+                  <select class="form-control input-sm" ng-model="email.tipo" id="tipos" ng-required="true">
+                    <option ng-repeat="tipo in data.tipo">{{tipo}}</option>
+                  </select>
+                </div>
+              </td>
 
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2">
-              <div class="form-group">
-                <label>Do que precisa?</label>
-                <div class="contact-precisa">
-                  <div class="col-md-6">
-                      <div class="checkbox" ng-if="$index < (data.precisa.length / 2)" ng-repeat="precisa in data.precisa">
-                         <label><input type="checkbox" ng-model="email.precisa[precisa]" name="precisa" /></label>
-                         {{precisa}}
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                      <div class="checkbox" ng-if="$index >= (data.precisa.length / 2)" ng-repeat="precisa in data.precisa">
-                         <label><input type="checkbox" ng-model="email.precisa[precisa]" name="precisa" /></label>
-                         {{precisa}}
-                     </div>
+              <td>
+
+              </td>
+            </tr>
+            <tr>
+              <td colspan="2">
+                <div class="form-group">
+                  <label>Do que precisa?</label>
+                  <div class="contact-precisa">
+                    <div class="col-md-6">
+                        <div class="checkbox" ng-if="$index < (data.precisa.length / 2)" ng-repeat="precisa in data.precisa">
+                           <label><input type="checkbox" ng-model="email.precisa[precisa]" name="precisa" /></label>
+                           {{precisa}}
+                       </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="checkbox" ng-if="$index >= (data.precisa.length / 2)" ng-repeat="precisa in data.precisa">
+                           <label><input type="checkbox" ng-model="email.precisa[precisa]" name="precisa" /></label>
+                           {{precisa}}
+                       </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td><button class="btn btn-default full-width" ng-click="limpar()" formnovalidate>Limpar</button></td>
-            <td><button class="btn btn-default full-width" ng-click="form.$valid && enviar()" >Enviar</button></td>
-          </tr>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <button class="btn btn-default full-width" ng-click="limpar()" formnovalidate>Limpar</button>
+              </td>
+              <td><button ng-show="enviarButton" class="btn btn-default full-width" ng-click="form.$valid && enviar()" >Enviar</button>
+                <div ng-show="showLoading" class="enviando-email">
+                  <img src="{{general.spinner}}" />
+                </div>
+              </td>
+            </tr>
 
-        </table>
+          </table>
+        </form>
+      </div>
 
-
-      </form>
+      <div class="mensagem-contato green-div" ng-show="showSuccess">{{data.mensagem_sucesso}}</div>
+      <div class="mensagem-contato red-div" ng-show="showError">{{data.mensagem_erro}}</div>
 
     </div>
   </div>

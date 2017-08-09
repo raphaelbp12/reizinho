@@ -8,15 +8,17 @@ angular.module('App').service('DataService', ['$http', function ($http) {
 
     self.WPURL = "http://34.229.92.175";
 
+
     self.getData = function () {
         //console.log("twitch called");
         self.loadingData = true;
 
         $http({
             method: "GET",
-            url: self.WPURL+"/data/",
+            url: self.WPURL+"/wp-json/data/get",
             headers: {'Content-Type': 'application/json;'}
         }).then(function(restsData) {
+          console.log(restsData)
             self.loadingData = false;
             self.generalInfo = restsData.data.general_info;
             self.data = restsData.data.data;
@@ -27,13 +29,14 @@ angular.module('App').service('DataService', ['$http', function ($http) {
     };
 
     self.sendEmail = function (data) {
-        $http({
+        return $http({
             method: "POST",
-            url: self.WPURL+"/email/",
+            url: self.WPURL+"/wp-json/email/send/",
+          //url: "http://localhost/reinel/wp-json/email/send/",
             headers: {'Content-Type': 'application/json;'},
             data: data
         }).then(function(res) {
-            console.log(res);
+          return res.data ? Promise.resolve() : Promise.reject();
         });
     };
 }]);

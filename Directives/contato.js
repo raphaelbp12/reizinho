@@ -1,7 +1,8 @@
 angular.module('App').directive("contato", ['DataService', function(DataService) {
     return {
         scope: {
-            data: '='
+            data: '=',
+            general: '='
         },
         controller: ['$scope', 'DataService', function ContatoController($scope, DataService)  {
           $scope.data.tipo = ["CASAMENTO", "FORMATURA", "ANIVERSÁRIO", "CORPORATIVO", "WORKSHOP"];
@@ -11,9 +12,26 @@ angular.module('App').directive("contato", ['DataService', function(DataService)
           $scope.email = {};
           $scope.email.tipo = $scope.data.tipo[0];
 
+          $scope.showForm = true;
+          $scope.enviarButton = true;
+          $scope.showError = false;
+          $scope.showSuccess = false;
+          $scope.showLoading = false;
+
           $scope.enviar = function () {
-            console.log($scope.email);
-            DataService.sendEmail($scope.email);
+            $scope.showLoading = true;
+            $scope.enviarButton = false;
+            DataService.sendEmail($scope.email).then(() => {
+              //sucess
+              $scope.showForm = $scope.showLoading = false;
+              $scope.showSuccess = true;
+            },
+          () => {
+            //fail
+            $scope.showForm = $scope.showLoading = false;
+            $scope.showError = true;
+          });
+
           }
           $scope.limpar = function () {
             $scope.email = {};
