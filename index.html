@@ -16,6 +16,7 @@
     <link href="CSS/footer.css" rel="stylesheet">
     <link href="CSS/modalGallery.css" rel="stylesheet">
     <link href="CSS/menu.css" rel="stylesheet">
+
 </head>
 <body ng-app="App" ng-controller="indexController">
 
@@ -23,20 +24,24 @@
     <section-generator section="item" general="dataService.generalInfo" ng-repeat="item in dataService.data"></section-generator>
 </div>
 
+
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-slick-carousel/dist/angular-slick.js"></script>
+<script src="node_modules/angular-slick-carousel/dist/angular-slick.min.js"></script>
+<script src="node_modules/angular-animate/angular-animate.js"></script>
 <script src="node_modules/lodash/lodash.js"></script>
 <script src="node_modules/restangular/dist/restangular.min.js"></script>
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <script src="node_modules/angular-modal-service/dst/angular-modal-service.min.js"></script>
 
-<script src="lib/smtp.js"></script>
-
 <script src="app.js"></script>
 <script src="Controllers/indexController.js"></script>
 <!--<script src="Controllers/ModalController.js"></script>-->
+
+<script src="Directives/imageonload.js"></script>
 <script src="Directives/menu.js"></script>
 <script src="Directives/slider.js"></script>
 <script src="Directives/quemSomos.js"></script>

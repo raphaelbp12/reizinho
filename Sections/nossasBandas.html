@@ -1,16 +1,30 @@
-<div id='nossas-bandas' class="section centralizado nossasBandas">
-    <div class="container-galerias container-galerias-nossasBandas">
-        <div ng-repeat='gallery in galleries_nossasBandas' class="galeria-preview" ng-click="changeGallery(gallery.id)">
-            <!--<h3>{{gallery.name}}</h3>-->
-            <img src='{{gallery.cover.url}}'>
+<div id='nossas-bandas' class="section nossasBandas">
+    <!-- <slick class="galerias-bandas container-galerias" id="container-galerias" autoplay="true" autoplaySpeed="500" fade="true" init-onload=true> -->
+    <div class="container centralizado  ">
+      <slick  class="galerias-bandas" id="container-galerias" settings="slickGaleriasConfig">
+        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
+        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+        <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
         </div>
+      </slick>
+
+
+
+    <!-- <div class="galeria" id="galeria-nossasBandas">
+    </div> -->
+    <div class="slick-supporter">
+      <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas" settings="slickBandasConfig" ng-if="arrayLoaded">
+        <div id="{{$index}}" ng-repeat='image in gallerySelected.images' class="nossasBandas-gallery-item"
+        ng-class="!arrayLoaded ? 'hidden' : ''"
+         imageonload="{{image.url_thumb}}" general="general" ng-click="showModal($index);">
+        </div>
+      </slick>
+  </div>
+
+
+    <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected">
     </div>
-
-  <div class="galeria" id="galeria-nossasBandas">
+    <div class="ribbon-border"></div>
+    <div class="text-nossasBandas">{{data.text}}</div>
   </div>
-
-  <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected">
-  </div>
-  <div class="ribbon-border"></div>
-  <div class="text-nossasBandas">{{data.text}}</div>
 </div>

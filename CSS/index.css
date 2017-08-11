@@ -3,6 +3,10 @@
 .section {
 }
 
+.container {
+  max-width: 1170px;
+}
+
 
 .galeria {
     /*padding: 60px 30px 0 30px;*/
@@ -14,10 +18,10 @@
     margin: 30px 0 30px 0;
 }
 
-.galeria img {
+/*.galeria img {
     height: 200px;
     width: 200px;
-}
+}*/
 
 .galeria div + div {
     /*margin-left: 10px;*/
@@ -53,4 +57,12 @@
 
 .rounded {
   border-radius: 50%;
+}
+
+.hidden-here {
+  visibility: hidden;
+}
+
+.visible-here {
+  visibility: visible;
 }

@@ -1,14 +1,33 @@
 .nossasBandas-gallery-item{
     width: auto;
-    height: 250px;
+    height: 200px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
     cursor: pointer;
 }
 
+.gallery-item {
+  width: 250px;
+  min-height: 200px !important;
+  height: auto;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 50%;
+  cursor: pointer;
+  opacity: 0.5;
+
+
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+
 .nossasBandas{
-  padding: 80px 0 60px 0;
+  padding: 130px 0 60px 0;
   background: rgb(57, 59, 65);
   color: #fff;
 }
@@ -17,23 +36,23 @@
     height: 90vh;
 }
 
-.container-galerias-nossasBandas img {
-    max-height: 200px;
-    width: auto;
+.nossasBandas .galerias-bandas {
+    width: 50%;
 }
 
 .text-nossasBandas{
   margin-top: 60px;
-  max-width: 80%;
+  max-width: 60%;
   text-align:center;
 }
 
 .nossasBandas .galeria {
-  width: 90%;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .ribbon-border{
-  margin-top: 20px;
+  margin-top: 10px;
   width: 220px;
   height: 5px;
   background: -moz-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* FF3.6-15 */
@@ -52,4 +71,57 @@
 
 .slick-dots li.slick-active button:before {
   color: #fff;
+}
+
+
+
+.gallery-selected{
+  opacity: 1;
+}
+
+
+
+.nossasBandas .galeria{
+  display:flex;
+  flex-direction: row;
+}
+
+.nossasBandas .galerias-bandas .slick-track div + div{
+  margin-left: 50px;
+}
+
+.galeria.ng-leave {
+  animation: 1s disappear;
+}
+
+.galeria.ng-leave {
+  -webkit-transition: all 0.7s ease-out;
+  -moz-transition: all 0.7s ease-out;
+  -o-transition: all 0.7s ease-out;
+  -ms-transition: all 0.7s ease-out;
+  transition: all 0.7s ease-out;
+	opacity: 1;
+}
+
+.galeria.ng-leave.ng-leave-active {
+	opacity: 0;
+}
+
+.galeria.ng-enter {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  -ms-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+	opacity: 0;
+}
+
+.galeria.ng-enter.ng-enter-active {
+	opacity: 1;
+}
+
+.slick-supporter{
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
 }

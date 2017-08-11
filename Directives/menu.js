@@ -38,7 +38,6 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
                     newActiveMenu.home = isScrolledIntoViewById('slider');
 
                     $scope.changeActiveMenu(newActiveMenu);
-                    console.log(newActiveMenu)
                 });
             }
 

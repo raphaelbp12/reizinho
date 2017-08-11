@@ -1,5 +1,5 @@
-<div class="ac-modal" id="{{modalId}}" ng-show="show" ng-click="clickOutsideModal($event, this)" ng-class="triggerOpacity ? 'active' : ''">
+<div class="ac-modal hidden-here" id="{{modalId}}" ng-show="show" ng-click="clickOutsideModal($event, this)" ng-class="{'active': triggerOpacity, 'visible-here': show}">
     <button type="button" class="close ac-modal-close-button" ng-click="closeModal()"><span aria-hidden="true" ng-click="closeModal()">&times;</span><span class="sr-only">Close</span></button>
-    <div id="modalGallery">
+    <div class="" id="modalGallery">
     </div>
 </div>

@@ -5,7 +5,9 @@
   "main": "app.js",
   "dependencies": {
     "angular": "^1.6.5",
+    "angular-animate": "^1.6.5",
     "angular-modal-service": "^0.12.1",
+    "angular-slick-carousel": "^3.1.7",
     "restangular": "^1.6.1"
   },
   "devDependencies": {},

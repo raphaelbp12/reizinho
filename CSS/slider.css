@@ -75,12 +75,12 @@
     color: black;
 }
 
-.slick-prev {
+.slider .slick-prev {
     left: 15px;
     z-index: 10;
 }
 
-.slick-next {
+.slider .slick-next {
     right: 10px;
     z-index: 10;
 }

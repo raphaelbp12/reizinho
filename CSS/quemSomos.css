@@ -96,7 +96,7 @@
     padding-left: 10px;
     min-height: 45px;
     line-height: 30px;
-    width: 300px !important;
+    width: 320px !important;
     cursor: pointer;
 
     display: flex;
@@ -148,7 +148,7 @@
 }
 
 .ac-quemsomos-text.active{
-    height: 140px;
+    height: 130px;
     padding: 10px 20px 15px 10px;
 
     -webkit-transition:	all 0.3s linear;

@@ -11,26 +11,26 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', functio
 
           $scope.changeGallery = function (id) {
                   $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                      $('#galeria-oQueFazemos').slick('slickRemove',0);
+                      // $('#galeria-oQueFazemos').slick('slickRemove',0);
                   });
 
                   $scope.gallerySelected = $scope.galleries_oQueFazemos[id];
 
                   $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                      $('#galeria-oQueFazemos').slick('slickAdd',"<div  class='oQueFazemos-gallery-item' style='background-image: url("+image.url_thumb+")'></div>");
+                      // $('#galeria-oQueFazemos').slick('slickAdd',"<div  class='oQueFazemos-gallery-item' style='background-image: url("+image.url_thumb+")'></div>");
                   });
           };
 
 
           $(document).ready(function (){
-            $('#galeria-oQueFazemos').slick({
-                "slidesToShow": 3,
-                "slidesToScroll": 3,
-                "arrows": true,
-                "autoplay": true,
-                "autoplaySpeed": 500,
-                "dots": true
-            });
+            // $('#galeria-oQueFazemos').slick({
+            //     "slidesToShow": 3,
+            //     "slidesToScroll": 3,
+            //     "arrows": true,
+            //     "autoplay": true,
+            //     "autoplaySpeed": 500,
+            //     "dots": true
+            // });
             $scope.changeGallery(0);
           });
 
