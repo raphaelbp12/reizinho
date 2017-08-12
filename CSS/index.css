@@ -66,3 +66,34 @@
 .visible-here {
   visibility: visible;
 }
+
+
+
+/* fonts */
+@font-face {
+    font-family: NexaBold;
+    src: url("../Fonts/NexaBold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: NexaLight;
+    src: url("../Fonts/NexaLight.otf") format("opentype");
+}
+
+
+@font-face {
+    font-family: ErasBold;
+    src: url("../Fonts/eras-bold-itc.ttf");
+}
+@font-face {
+    font-family: ErasLight;
+    src: url("../Fonts/eras-light-itc.ttf");
+}
+@font-face {
+    font-family: ErasMedium;
+    src: url("../Fonts/eras-medium-itc.ttf");
+}
+@font-face {
+    font-family: ErasDemi;
+    src: url("../Fonts/eras-demi-itc.ttf");
+}

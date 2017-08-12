@@ -72,7 +72,7 @@
 .full-width-slider-dots li.slick-active button:before
 {
     opacity: .75;
-    color: black;
+    color: #fff;
 }
 
 .slider .slick-prev {
@@ -90,6 +90,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
+    cursor: pointer;
 }
 
 .slick-dotted.slick-slider{

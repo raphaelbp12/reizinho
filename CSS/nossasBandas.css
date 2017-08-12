@@ -84,6 +84,7 @@
 .nossasBandas .galeria{
   display:flex;
   flex-direction: row;
+  margin-bottom: 20px; /*dots space*/
 }
 
 .nossasBandas .galerias-bandas .slick-track div + div{
@@ -122,6 +123,6 @@
 
 .slick-supporter{
   width: 100%;
-  max-height: 200px;
+  height: 220px;
   overflow: hidden;
 }

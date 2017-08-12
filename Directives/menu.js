@@ -6,7 +6,8 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
         },
         controller: ['$scope', 'DataService', 'Common', 'ModalService', function NossasBandasController($scope, DataService, Common, ModalService) {
 
-          $scope.activeMenu = {};
+          $scope.activeMenu = {home:true};
+          $scope.offsetToDetect = 70;
 
           $(document).ready(function() {
             var menuBarItems = $('.navbar-nav li').not( document.getElementById( "logo" ));
@@ -30,12 +31,20 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
                 $(window).on("scroll load resize", function () {
                     var newActiveMenu = {}
                     checkScroll();
-                    $scope.data.forEach(function(item){
-                      newActiveMenu[item.post_name] = isScrolledIntoViewById(item.post_name);
+                    newActiveMenu.home = isScrolledIntoViewById('slider');
+                    $scope.data.forEach(function(item,index){
+                      if (isScrolledIntoViewById(item.post_name)){
+                        $scope.data.forEach(function(item,index){
+                          newActiveMenu[item.post_name] = false;
+                          newActiveMenu.home = false;
+                        });
+                        newActiveMenu[item.post_name] = true;
+                      }
+
                     });
 
                     //Home - imagem
-                    newActiveMenu.home = isScrolledIntoViewById('slider');
+
 
                     $scope.changeActiveMenu(newActiveMenu);
                 });
@@ -43,12 +52,17 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
 
           });
 
+          $scope.changeSelected = function (item) {
+            $scope.itemSelected = item;
+          }
 
           $scope.changeActiveMenu = function (newActiveMenu) {
               $scope.$apply(function () {
-                  $scope.activeMenu = (Object.values(newActiveMenu).indexOf(true) > -1) ? newActiveMenu : $scope.activeMenu ;
+                  if ((Object.values(newActiveMenu).indexOf(true) > -1)) {
+                    $scope.activeMenu = newActiveMenu;
+                    $scope.changeSelected(Object.keys(newActiveMenu)[Object.values(newActiveMenu).indexOf(true)]);
+                  }
               });
-
               //console.log('$scope.activeMenu', $scope.activeMenu);
           };
 
@@ -56,13 +70,15 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
               var elem = document.getElementById(id);
 
               if (elem) {
+
                   var docViewTop = $(window).scrollTop();
                   var docViewBottom = docViewTop + $(window).height();
 
                   var elemTop = $(elem).offset().top;
                   var elemBottom = elemTop + $(elem).height();
 
-                  return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+                  // return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));\
+                  return (elemTop <= (docViewTop + $scope.offsetToDetect));
               } else {
                   return false;
               }

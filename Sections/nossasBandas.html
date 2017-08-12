@@ -13,7 +13,7 @@
     <!-- <div class="galeria" id="galeria-nossasBandas">
     </div> -->
     <div class="slick-supporter">
-      <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas" settings="slickBandasConfig" ng-if="arrayLoaded">
+      <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas" settings="slickBandasConfig" ng-if="arrayLoaded" dots="true">
         <div id="{{$index}}" ng-repeat='image in gallerySelected.images' class="nossasBandas-gallery-item"
         ng-class="!arrayLoaded ? 'hidden' : ''"
          imageonload="{{image.url_thumb}}" general="general" ng-click="showModal($index);">

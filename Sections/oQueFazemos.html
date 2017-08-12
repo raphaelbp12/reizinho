@@ -1,15 +1,17 @@
 <div id='o-que-fazemos' class="section centralizado oQueFazemos">
-  <div class="container-galerias container-galerias-oQueFazemos">
-    <div ng-repeat='gallery in galleries_oQueFazemos' class="galeria-preview" ng-click="changeGallery(gallery.id)">
-      <!-- <img class="rounded" src='{{gallery.cover.url}}'> -->
-      <!-- <h5>{{gallery.name}}<h5> -->
+  <div class="container centralizado  ">
+    <div class="container-galerias container-galerias-oQueFazemos">
+      <div ng-repeat='gallery in galleries_oQueFazemos' class="galeria-preview" ng-click="changeGallery(gallery.id)">
+        <!-- <img class="rounded" src='{{gallery.cover.url}}'> -->
+        <!-- <h5>{{gallery.name}}<h5> -->
+      </div>
+
     </div>
 
+    <div class="galeria" id="galeria-oQueFazemos">
+    </div>
+
+
+    <div class="text-oQueFazemos">{{data.text}}</div>
   </div>
-
-  <div class="galeria" id="galeria-oQueFazemos">
-  </div>
-
-
-  <div class="text-oQueFazemos">{{data.text}}</div>
 </div>
