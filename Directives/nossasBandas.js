@@ -6,10 +6,44 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
         },
         controller: ['$scope', 'DataService', 'Common', 'ModalService', function NossasBandasController($scope, DataService, Common, ModalService) {
             $scope.galleries_nossasBandas = [];
+            $scope.common = Common;
             Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas);
+
 
             $scope.modalShow = false;
             $scope.modalImageIndex = 1;
+
+
+            $scope.slickVideosConfig = {
+                      "slidesToShow": 3,
+                      "slidesToScroll": 3,
+                      "arrows": true,
+                      "autoplay": false,
+                      "dots": true,
+                      responsive: [
+                        {
+                          breakpoint: 600,
+                          settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 2
+                          }
+                        },
+                        {
+                          breakpoint: 480,
+                          settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                          }
+                        }
+                      ],
+                method: {},
+                event: {
+                    beforeChange: function (event, slick, currentSlide, nextSlide) {
+                    },
+                    afterChange: function (event, slick, currentSlide, nextSlide) {
+                    }
+                }
+            };
 
             $scope.slickBandasConfig = {
                       "slidesToShow": 5,
@@ -82,25 +116,38 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                 }
             };
 
-            $scope.gallerySelected = $scope.galleries_nossasBandas[0];
-            $scope.arrayLoaded = true;
+            // $scope.gallerySelected = $scope.galleries_nossasBandas[0];
+            // console.log('nossasbandas', $scope.galleries_nossasBandas)
+            // $scope.arrayLoaded = false;
             $scope.changeGallery = function (id) {
 
-                    $scope.galleries_nossasBandas.forEach(function (gallery, galleryIndex) {
-                      $('#container-galerias #'+gallery.id).removeClass('gallery-selected');
-                    });
-                    $('#container-galerias #'+id).addClass('gallery-selected');
+                      $scope.galleries_nossasBandas.forEach(function (gallery, galleryIndex) {
+                        $('#container-galerias #'+gallery.id).removeClass('gallery-selected');
+                      });
+                      $('#container-galerias #institucional').removeClass('gallery-selected');
 
 
-                    $scope.arrayLoaded = false;
-                    $scope.gallerySelected = $scope.galleries_nossasBandas[id];
-                    $timeout(function(){
-                     $scope.arrayLoaded = true;
-                   },500);
+
+                      $scope.arrayLoaded = false;
+                      $scope.videosLoaded = false;
+
+                      if( (id != undefined)) {
+                        $('#container-galerias #'+id).addClass('gallery-selected');
+                        $scope.gallerySelected = $scope.galleries_nossasBandas[id] ;
+                      }else {
+                        $('#container-galerias #institucional').addClass('gallery-selected');
+                        $scope.gallerySelected.images = $scope.data.videos;
+                        $scope.videosLoaded = true;
+                      }
+                      $timeout(function(){
+                       $scope.arrayLoaded = true;
+
+                     },500);
+
+
 
 
             };
-
 
             $scope.showModal = function(index) {
                 $scope.modalImageIndex = index;

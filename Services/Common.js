@@ -11,11 +11,20 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
         return DataService.WPURL + path + "/thumbs/thumbs_" + filename;
     };
 
+    self.calcYoutubeURL = function (URL) {
+      return "https://www.youtube.com/embed/"+URL;
+    }
+
+
+    self.calcYoutubeThumbURL = function (URL) {
+      return "https://img.youtube.com/vi/"+URL+"/0.jpg";
+    }
+
     self.calcURL = function(path, filename){
         return DataService.WPURL + path + "/" + filename;
     };
 
-    self.calcGalleries = function(images,galleries){
+    self.calcGalleries = function(images,galleries, videos, gallery_videos){
         images.forEach(function (image, indexImage) {
             var foundGallery = false;
             var cover = image.alttext === self.COVER_STRING;
@@ -48,7 +57,7 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
 
             }
 
-        })
+        });
 
         console.log("$scope.galleries", galleries);
     };

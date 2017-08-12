@@ -5,6 +5,7 @@
     background-size: cover;
     background-position: 50%;
     cursor: pointer;
+    position: relative;
 }
 
 .gallery-item {
@@ -17,6 +18,8 @@
   cursor: pointer;
   opacity: 0.5;
 
+  position: relative;
+
 
   -webkit-transition: all 0.3s ease-out;
   -moz-transition: all 0.3s ease-out;
@@ -27,8 +30,9 @@
 
 
 .nossasBandas{
+
   padding: 130px 0 60px 0;
-  background: rgb(57, 59, 65);
+  background: #393B41;
   color: #fff;
 }
 
@@ -38,12 +42,15 @@
 
 .nossasBandas .galerias-bandas {
     width: 50%;
+    margin-bottom: 30px;
 }
 
 .text-nossasBandas{
-  margin-top: 60px;
-  max-width: 60%;
+  margin-top: 25px;
+  max-width: 70%;
   text-align:center;
+  font-family: ErasMedium;
+  font-size: 16px;
 }
 
 .nossasBandas .galeria {
@@ -126,3 +133,9 @@
   height: 220px;
   overflow: hidden;
 }
+
+/*.nossasBandas-gallery-item iframe {
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  background-position: 50%;
+}*/

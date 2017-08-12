@@ -2,10 +2,15 @@
     <!-- <slick class="galerias-bandas container-galerias" id="container-galerias" autoplay="true" autoplaySpeed="500" fade="true" init-onload=true> -->
     <div class="container centralizado  ">
       <slick  class="galerias-bandas" id="container-galerias" settings="slickGaleriasConfig">
+        <div id="institucional" class="gallery-item"
+        ng-click="changeGallery()" imageonload="{{general.logo}}" general="general">
+        <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
+        </div>
         <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
         ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
         <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
         </div>
+
       </slick>
 
 
@@ -13,12 +18,39 @@
     <!-- <div class="galeria" id="galeria-nossasBandas">
     </div> -->
     <div class="slick-supporter">
-      <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas" settings="slickBandasConfig" ng-if="arrayLoaded" dots="true">
-        <div id="{{$index}}" ng-repeat='image in gallerySelected.images' class="nossasBandas-gallery-item"
-        ng-class="!arrayLoaded ? 'hidden' : ''"
-         imageonload="{{image.url_thumb}}" general="general" ng-click="showModal($index);">
+      <!-- <slick  init-onload="true" data="videosLoaded" class="galeria" id="videos-nossasBandas" settings="slickVideosConfig" ng-if="videosLoaded" dots="true">
+        <div id="{{$index}}" ng-repeat='video in data.videos' class="nossasBandas-gallery-item"
+        ng-class="!videosLoaded ? 'hidden' : ''" general="general" ng-click="showModal($index);"
+        ng-if="video != '' && video != false" imageonload="{{common.calcYoutubeThumbURL(video)}}">
         </div>
+      </slick> -->
+      <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas"
+      settings="(videosLoaded) ? slickVideosConfig : slickBandasConfig" ng-if="arrayLoaded" dots="true">
+
+        <div id="{{$index}}"
+         ng-repeat='image in gallerySelected.images'
+         class="nossasBandas-gallery-item"
+         ng-class="!arrayLoaded ? 'hidden' : ''"
+         imageonload="{{ (videosLoaded) ? common.calcYoutubeThumbURL(image) : image.url_thumb}}"
+         general="general"
+         ng-click="(videosLoaded) ? '' : showModal($index);">
+
+         <!-- <div class="div-loading"></div> -->
+         <iframe
+            width="100%"
+            height="100%"
+            allowfullscreen="allowfullscreen"
+            mozallowfullscreen="mozallowfullscreen"
+            msallowfullscreen="msallowfullscreen"
+            oallowfullscreen="oallowfullscreen"
+            webkitallowfullscreen="webkitallowfullscreen"
+            ng-src="{{common.calcYoutubeURL(image)}}"
+            ng-if="videosLoaded" >
+          </iframe>
+       </div>
       </slick>
+
+
   </div>
 
 

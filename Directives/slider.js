@@ -9,6 +9,7 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
         },
         controller: ['$scope', 'DataService', 'Common','$window', function SliderController($scope, DataService, Common, $window) {
             $scope.calcURL = Common.calcURL;
+            $scope.common = Common;
             $(document).ready(function () {
                 $('#slider').slick({
                     "slidesToShow": 1,
@@ -23,11 +24,9 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
                 });
             });
 
-            $scope.normalizeURL = function (URL) {
-              return URL.replace("watch?v=", "embed/");
-            }
+
             $scope.openLink = function(link) {
-              $window.open(link);
+              if(link && link != '') $window.open(link);
             };
         }],
         templateUrl: 'Sections/slider.html'
