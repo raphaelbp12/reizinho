@@ -1,5 +1,5 @@
 .contato {
-  padding: 110px 0 110px 0;
+  padding: 120px 0 50px 0;
   background: rgb(57, 59, 65);
   color: #fff;
 }
@@ -75,4 +75,27 @@
 .red-div{
   border: 2px solid red;
   color: red;
+}
+
+.contato .ribbon-border{
+  margin-top: 10px;
+  width: 220px;
+  height: 5px;
+  background: -moz-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+  margin-bottom: 40px;
+}
+
+.contato .title {
+  font-family: ErasBold;
+  font-size: 50px;
+  color: #fff;
+}
+
+.contato .desc {
+  font-family: ErasMedium;
+  font-size: 20px;
+  color: #fff;
 }

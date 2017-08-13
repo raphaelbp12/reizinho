@@ -15,8 +15,11 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
 
             function checkScroll() {
                 var startY = $('.navbar').height() * 0.1; //The point where the navbar changes in px
+                var contatoelem = document.getElementById("contato");
 
-                if ($(window).scrollTop() > startY) {
+                var contatoY = $(contatoelem).offset().top;
+                console.log(contatoY, $(window).scrollTop());
+                if ($(window).scrollTop() > startY && ($(window).scrollTop() < contatoY) ) {
                     $('.navbar').addClass("scrolled");
                     menuBarItems.removeClass("li-not-scrolled");
                 } else {
