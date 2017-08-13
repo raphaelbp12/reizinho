@@ -4,10 +4,11 @@ angular.module('App').directive("quemSomos", ['DataService', function(DataServic
             data: '=',
             general: '='
         },
-        controller: ['$scope', 'DataService', '$window', function QuemSomosController($scope, DataService, $window) {
+        controller: ['$scope', 'DataService', 'Common',  function QuemSomosController($scope, DataService, Common) {
             $scope.missaoCtrl = false;
             $scope.valoresCtrl = false;
             $scope.visaoCtrl = false;
+            $scope.common = Common;
 
             $scope.toggleMissao = function () {
                 $scope.missaoCtrl = !$scope.missaoCtrl;
@@ -21,9 +22,7 @@ angular.module('App').directive("quemSomos", ['DataService', function(DataServic
                 $scope.visaoCtrl = !$scope.visaoCtrl;
             };
 
-            $scope.openLink = function(link) {
-              $window.open(link);
-            };
+
         }],
         templateUrl : 'Sections/quemSomos.html'
     };
