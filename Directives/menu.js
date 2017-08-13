@@ -18,7 +18,6 @@ angular.module('App').directive("menu", ['DataService', 'Common', function (Data
                 var contatoelem = document.getElementById("contato");
 
                 var contatoY = $(contatoelem).offset().top;
-                console.log(contatoY, $(window).scrollTop());
                 if ($(window).scrollTop() > startY && ($(window).scrollTop() < contatoY) ) {
                     $('.navbar').addClass("scrolled");
                     menuBarItems.removeClass("li-not-scrolled");
