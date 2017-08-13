@@ -1,4 +1,23 @@
 .footer{
-  padding: 60px 0 60px 0;
-  background: rgb(0,0,0);
+  padding: 50px 0 20px 0;
+  background: #D6B755;
+}
+.footer .redes-sociais{
+
+}
+
+.footer .redes-sociais img + img{
+  margin-left: 10px;
+}
+
+.footer .redes-sociais img {
+  cursor: pointer;
+}
+
+.footer .text {
+  margin-top: 20px;
+  text-align: center;
+  font-family: ErasMedium;
+  font-size: 18px;
+  color: #fff;
 }

@@ -1,4 +1,4 @@
-angular.module('App').service('Common', ['DataService', function (DataService) {
+angular.module('App').service('Common', ['DataService','$window', function (DataService, $window) {
 
     var self = this;
 
@@ -21,6 +21,11 @@ angular.module('App').service('Common', ['DataService', function (DataService) {
 
     self.calcURL = function(path, filename){
         return DataService.WPURL + path + "/" + filename;
+    };
+
+
+    self.openLink = function(link) {
+      $window.open(link);
     };
 
     self.calcGalleries = function(images,galleries){

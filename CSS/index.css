@@ -88,6 +88,10 @@
   opacity: 1 !important;
 }
 
+.redes-sociais img:hover{
+  opacity: 0.5;
+}
+
 
 /* fonts */
 @font-face {

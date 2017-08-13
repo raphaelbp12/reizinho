@@ -1,4 +1,15 @@
 <div id='footer' class="section centralizado footer">
+  <div class="container">
+    <div class="redes-sociais display-flex-all-centered">
+      <img ng-click="common.openLink(general.facebook_link)" src="{{general.imagem_fb}}" />
+      <img ng-click="common.openLink(general.instagram_link)" src="{{general.imagem_instagram}}" />
+    </div>
 
+    <div class="text">
+      {{data.email_contato}} | {{data.tel_contato}} <br />
+      {{data.endereco_contato}} | {{data.cidade_estado}} <br /><br />
+      <b>{{data.msg_copyright}}</b>
+    </div>
+  </div>
 
 </div>

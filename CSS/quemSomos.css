@@ -54,17 +54,17 @@
   color: #fff;
 }
 
-.redes-sociais{
+.quemSomos .redes-sociais{
   position: absolute;
   right: 120px;
   top: 20px;
 }
 
-.redes-sociais img + img{
+.quemSomos .redes-sociais img + img{
   margin-left: 10px;
 }
 
-.redes-sociais img {
+.quemSomos .redes-sociais img {
   cursor: pointer;
 }
 
