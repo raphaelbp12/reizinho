@@ -18,6 +18,7 @@ angular.module('App').directive("contato", ['DataService', 'NgMap', function (Da
             $scope.showSuccess = false;
             $scope.showLoading = false;
 
+            $scope.googleMapsUrl="https://maps.googleapis.com/maps/api/js?key=AIzaSyDcXiVxl4MVFxT_mghPWMvIx3mcTKW5VGE";
             NgMap.getMap().then(function (map) {
                 console.log(map.getCenter());
                 console.log('markers', map.markers);
