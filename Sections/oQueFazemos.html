@@ -1,17 +1,36 @@
-<div id='o-que-fazemos' class="section centralizado oQueFazemos">
+<div id='o-que-fazemos' class="section centralizado oQueFazemos" ng-style="{'background-image':'url({{data.background}})'}">
   <div class="container centralizado  ">
-    <div class="container-galerias container-galerias-oQueFazemos">
-      <div ng-repeat='gallery in galleries_oQueFazemos' class="galeria-preview" ng-click="changeGallery(gallery.id)">
-        <!-- <img class="rounded" src='{{gallery.cover.url}}'> -->
-        <!-- <h5>{{gallery.name}}<h5> -->
+
+    <slick  class="galerias-fazemos" id="container-galerias-fazemos" settings="slickGaleriasConfig">
+      <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+      ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
       </div>
 
-    </div>
+    </slick>
 
-    <div class="galeria" id="galeria-oQueFazemos">
-    </div>
+  <div class="slick-supporter">
+    <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-oQueFazemos"
+    settings="slickFazemosConfig" ng-if="arrayLoaded" dots="true">
+
+      <div id="{{$index}}"
+       ng-repeat='image in gallerySelected.images'
+       class="oQueFazemos-gallery-item"
+       ng-class="!arrayLoaded ? 'hidden' : ''"
+       imageonload="{{image.url_thumb}}"
+       general="general"
+       ng-click="">
+     </div>
+    </slick>
 
 
-    <div class="text-oQueFazemos">{{data.text}}</div>
+  </div>
+
+
+  <!-- <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected">
+  </div> -->
+  <!-- <div class="ribbon-border"></div> -->
+
+    <div class="title-oQueFazemos">{{gallerySelected.name}}</div>
+    <div class="text-oQueFazemos">{{gallerySelected.description}}</div>
   </div>
 </div>
