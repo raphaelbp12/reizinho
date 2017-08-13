@@ -1,10 +1,14 @@
 .full-width-slider-dots {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
     display: block;
     width: auto;
     padding: 0;
-    margin: -25px auto;
     list-style: none;
     text-align: center;
+    pointer-events: none;
 }
 
 .full-width-slider-dots li
@@ -16,6 +20,7 @@
     margin: 0 5px;
     padding: 0;
     cursor: pointer;
+    pointer-events: auto;
 }
 .full-width-slider-dots li button
 {
