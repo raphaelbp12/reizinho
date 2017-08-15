@@ -1,15 +1,25 @@
 <div id='footer' class="section centralizado footer">
-  <div class="container">
-    <div class="redes-sociais display-flex-all-centered">
-      <img ng-click="common.openLink(general.facebook_link)" src="{{general.imagem_fb}}" />
-      <img ng-click="common.openLink(general.instagram_link)" src="{{general.imagem_instagram}}" />
-    </div>
+    <div class="container">
+        <div class="col-md-6">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fr1segaming%2F&tabs=timeline&width=440&height=500&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=680913598613533"
+                    width="440" height="500" style="border:none;overflow:hidden;margin: auto;display: -webkit-box;"
+                    scrolling="no" frameborder="0"
+                    allowTransparency="true"></iframe>
+        </div>
+        <div class="col-md-6" style="height: 500px">
+            <div style="margin: auto; vertical-align: middle; margin-top: 145px;">
+                <div class="redes-sociais display-flex-all-centered">
+                    <img ng-click="common.openLink(general.facebook_link)" src="{{general.imagem_fb}}"/>
+                    <img ng-click="common.openLink(general.instagram_link)" src="{{general.imagem_instagram}}"/>
+                </div>
 
-    <div class="text">
-      {{data.email_contato}} | {{data.tel_contato}} <br />
-      {{data.endereco_contato}} | {{data.cidade_estado}} <br /><br />
-      <b>{{data.msg_copyright}}</b>
+                <div class="text">
+                    {{data.email_contato}} | {{data.tel_contato}} <br/>
+                    {{data.endereco_contato}} | {{data.cidade_estado}} <br/><br/>
+                    <b>{{data.msg_copyright}}</b>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 </div>

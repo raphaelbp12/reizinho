@@ -5,11 +5,15 @@
     <div class="ribbon-border"></div>
 
     <div class="contato-container">
-      <div class="col-md-6">
-        <div map-lazy-load="https://maps.google.com/maps/api/js">
-          <ng-map center="41,-87" zoom="3"></ng-map>
+      
+        <div class="col-md-6">
+            <div map-lazy-load="https://maps.google.com/maps/api/js"
+                 map-lazy-load-params="{{googleMapsUrl}}">
+                <ng-map center="-12.984412, -38.451516" zoom="16" class="gl-maps">
+                    <marker position="-12.984700, -38.451723" title="Point"></marker>
+                </ng-map>
+            </div>
         </div>
-      </div>
       <div class="col-md-6">
 
         <div ng-show="showForm">
