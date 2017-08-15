@@ -99,3 +99,12 @@
   font-size: 20px;
   color: #fff;
 }
+
+.contato .checkbox {
+  display: flex;
+  align-content:center;
+}
+
+.contato input[type=checkbox], input[type=radio] {
+  margin: 0 0 0 -20px;
+}
