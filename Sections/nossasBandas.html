@@ -25,7 +25,7 @@
         </div>
       </slick> -->
       <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-nossasBandas"
-      settings="(videosLoaded) ? slickVideosConfig : slickBandasConfig" ng-if="arrayLoaded" dots="true">
+      settings="slickBandasConfig" ng-if="arrayLoaded" dots="true">
 
         <div id="{{$index}}"
          ng-repeat='image in gallerySelected.images'

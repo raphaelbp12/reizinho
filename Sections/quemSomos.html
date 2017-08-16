@@ -1,4 +1,6 @@
 <div id='quem-somos' class='section  quemSomos' ng-style="{'background-image':'url({{data.background}})'}">
+    
+
 
   <div class="ribbon">
       <div class="text display-flex-all-centered">A REINEL</div>
@@ -10,18 +12,21 @@
   </div>
 
   <div class="container centralizado  ">
-
+      
 
     <div class="ribbon-2">
       <div class="text display-flex-all-centered">POSICIONAMENTO</div>
       <div class="border-bottom"></div>
     </div>
-    <div class="main ">
-      <div class="col-md-7 text">
-          Text: {{data.text}}
+    <div class="main">
+
+        <div class="row">
+
+      <div class="col-md-7 text col-xs-12 ">
+          {{data.text}}
       </div>
 
-      <div class="display-flex-all-centered div-missao-valores-visao col-md-5">
+      <div class="display-flex-all-centered div-missao-valores-visao  col-md-5 col-xs-12">
           <div class="ac-quemsomos-button" ng-click="toggleVisao()">
               <div class="content">
                   NOSSA VISÃO <span aria-hidden="true"

@@ -54,7 +54,7 @@
 }
 
 .nossasBandas .galeria {
-  width: 95%;
+  width: 92%;
   margin: 0 auto;
 }
 
@@ -137,3 +137,33 @@
   background-size: 30px 30px;
   background-position: 50%;
 }*/
+
+
+@media (max-width: 992px) {
+  .form-div{
+    margin-top: 30px;
+  }
+  .text-nossasBandas{
+    font-size: 28px;
+  }
+
+  .text-nossasBandas{
+    width: 100%;
+    max-width: 100%;
+  }
+  .nossasBandas .nossasBandas-gallery-item {
+    height: 600px;
+  }
+
+  .nossasBandas .slick-supporter{
+    height: 620px;
+  }
+}
+
+@media (max-width: 600px) {
+  
+}
+
+@media (max-width: 480px) {
+  
+}

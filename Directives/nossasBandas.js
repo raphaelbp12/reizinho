@@ -14,22 +14,16 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             $scope.modalImageIndex = 1;
 
 
-            $scope.slickVideosConfig = {
-                      "slidesToShow": 3,
-                      "slidesToScroll": 3,
+            $scope.slickBandasConfig = {
+                      "slidesToShow": 5,
+                      "slidesToScroll": 5,
                       "arrows": true,
-                      "autoplay": false,
+                      "autoplay": true,
+                      "autoplaySpeed": 2000,
                       "dots": true,
                       responsive: [
                         {
-                          breakpoint: 600,
-                          settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                          }
-                        },
-                        {
-                          breakpoint: 480,
+                          breakpoint: 992,
                           settings: {
                             slidesToShow: 1,
                             slidesToScroll: 1
@@ -45,44 +39,30 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                 }
             };
 
-            $scope.slickBandasConfig = {
-                      "slidesToShow": 5,
-                      "slidesToScroll": 5,
-                      "arrows": true,
-                      "autoplay": true,
-                      "autoplaySpeed": 2000,
-                      "dots": true,
-                      responsive: [
-                        {
-                          breakpoint: 1024,
-                          settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3
-                          }
-                        },
-                        {
-                          breakpoint: 600,
-                          settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                          }
-                        },
-                        {
-                          breakpoint: 480,
-                          settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                          }
-                        }
-                      ],
-                method: {},
-                event: {
-                    beforeChange: function (event, slick, currentSlide, nextSlide) {
-                    },
-                    afterChange: function (event, slick, currentSlide, nextSlide) {
-                    }
-                }
-            };
+            $scope.gallerySelected = $scope.galleries_nossasBandas[1];
+            
+
+            $scope.$watch(
+              function () {
+                  return $scope.gallerySelected;
+              },
+              function (newValue, oldValue) {
+                  if (!angular.equals(oldValue, newValue)) {
+                    console.log('newVar', newValue)
+                    $scope.slickBandasConfig.slidesToShow = (newValue.images.length >= 5) ? 5 : newValue.images.length;
+                    $scope.slickBandasConfig.slidesToScroll =  $scope.slickBandasConfig.slidesToShow;
+                    //992
+                    $scope.slickBandasConfig.responsive[0].slidesToShow = (newValue.images.length >= 3) ? 3 : newValue.images.length;
+                    $scope.slickBandasConfig.responsive[0].slidesToScroll =  $scope.slickBandasConfig.responsive[0].slidesToShow;
+                    // //600
+                    // $scope.slickBandasConfig.responsive[1].slidesToShow = (newValue.images.length >= 2) ? 2 : newValue.images.length;
+                    // $scope.slickBandasConfig.responsive[1].slidesToScroll =  $scope.slickBandasConfig.responsive[1].slidesToShow;
+                    // //480
+                    // $scope.slickBandasConfig.responsive[2].slidesToShow = (newValue.images.length >= 1) ? 1 : newValue.images.length;
+                    // $scope.slickBandasConfig.responsive[2].slidesToScroll =  $scope.slickBandasConfig.responsive[2].slidesToShow;
+                  }
+              },
+              true);
 
             $scope.slickGaleriasConfig = {
                 "slidesToShow": 3,
@@ -126,8 +106,6 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                       });
                       $('#container-galerias #institucional').removeClass('gallery-selected');
 
-
-
                       $scope.arrayLoaded = false;
                       $scope.videosLoaded = false;
 
@@ -155,63 +133,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             };
 
             $(document).ready(function () {
-            //     $('#galeria-nossasBandas').slick({
-            //         "slidesToShow": 5,
-            //         "slidesToScroll": 5,
-            //         "arrows": true,
-            //         "autoplay": true,
-            //         "autoplaySpeed": 2000,
-            //         "dots": true,
-            //         responsive: [
-            //           {
-            //             breakpoint: 1024,
-            //             settings: {
-            //               slidesToShow: 3,
-            //               slidesToScroll: 3
-            //             }
-            //           },
-            //           {
-            //             breakpoint: 600,
-            //             settings: {
-            //               slidesToShow: 2,
-            //               slidesToScroll: 2
-            //             }
-            //           },
-            //           {
-            //             breakpoint: 480,
-            //             settings: {
-            //               slidesToShow: 1,
-            //               slidesToScroll: 1
-            //             }
-            //           }
-            //         ]
-            //     });
-
-                // $('#container-galerias').slick({
-                //     "slidesToShow": 3,
-                //     "slidesToScroll": 1,
-                //     "arrows": true,
-                //     "autoplay": false,
-                //     "dots": true,
-                //     responsive: [
-                //       {
-                //         breakpoint: 600,
-                //         settings: {
-                //           slidesToShow: 2,
-                //           slidesToScroll: 2
-                //         }
-                //       },
-                //       {
-                //         breakpoint: 480,
-                //         settings: {
-                //           slidesToShow: 1,
-                //           slidesToScroll: 1
-                //         }
-                //       }
-                //     ]
-                // });
-
-                $scope.changeGallery(0);
+              $scope.changeGallery(0);
             });
 
         }],

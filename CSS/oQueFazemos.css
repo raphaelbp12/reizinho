@@ -68,7 +68,7 @@
 }
 
 .oQueFazemos .galeria {
-  width: 95%;
+  width: 92%;
   margin: 0 auto;
 }
 
@@ -80,4 +80,34 @@
   width: 100%;
   height: 370px;
   overflow: hidden;
+}
+
+
+@media (max-width: 992px) {
+  .oQueFazemos .oQueFazemos-gallery-item {
+    height: 600px;
+  }
+  .oQueFazemos .slick-supporter {
+    height: 620px;
+  }
+  .text-oQueFazemos{
+    font-size: 28px;
+  }
+  .title-oQueFazemos{
+    font-size: 32px;
+  }
+
+  .oQueFazemos .galerias-fazemos{
+    width: 100%;
+  }
+  
+
+}
+
+@media (max-width: 600px) {
+  
+}
+
+@media (max-width: 480px) {
+ 
 }

@@ -21,3 +21,19 @@
   font-size: 18px;
   color: #fff;
 }
+
+@media (max-width: 992px) {
+
+  .footer .text {
+    font-size: 26px;
+  }
+  
+}
+
+@media (max-width: 600px) {
+  
+}
+
+@media (max-width: 480px) {
+ 
+}

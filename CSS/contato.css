@@ -9,9 +9,9 @@
 }
 
 .contato-container {
-  display:flex;
+  /* display:flex;
   justify-content: center;
-  flex-direction: row;
+  flex-direction: row; */
   width: 100%;
   height: auto;
 }
@@ -35,8 +35,10 @@
 }
 
 .checkbox {
-  font-size: 11px;
+  font-size: 14px;
+  font-family: ErasMedium;
   margin: 0 0 5px 0;
+  border-radius: 3px;
 }
 .form-group label {
   font-size: 12px;
@@ -102,13 +104,72 @@
   font-family: ErasMedium;
   font-size: 20px;
   color: #fff;
+  text-align: center;
 }
 
 .contato .checkbox {
   display: flex;
-  align-content:center;
+  align-content:center;  
+  margin-bottom: 10px;
 }
 
 .contato input[type=checkbox], input[type=radio] {
-  margin: 0 0 0 -20px;
+  margin: 3px 0 0 -20px;
+}
+.form-div{
+  font-family: ErasMedium;
+}
+.checkbox {
+  font-family: ErasMedium;
+}
+
+.form-div{
+  font-size: 18px;
+  font-family: ErasMedium;
+}
+
+.form-div .row-margin > div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+@media (max-width: 992px) {
+  .form-div{
+    font-size: 28px;
+  }
+  .checkbox {
+    font-size: 24px;
+  }
+  .input-lg{
+    font-size: 24px;
+  }
+
+  .contato input[type=checkbox]{
+    transform: scale(2);
+    margin: 10px 0 0 -25px;
+  }
+
+  .contato .checkbox{
+    margin-left: 10px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+
+  .btn-group-lg>.btn, .btn-lg {
+    font-size: 28px;
+  }
+
+
+}
+
+@media (max-width: 600px) {
+  
+}
+
+@media (max-width: 480px) {
+ 
 }
