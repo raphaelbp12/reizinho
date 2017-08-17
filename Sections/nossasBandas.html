@@ -3,16 +3,16 @@
     <div class="container centralizado  ">
       <slick  class="galerias-bandas" id="container-galerias" settings="slickGaleriasConfig">
 
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index == 0" class="gallery-item"
+        <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index == 0" class="gallery-item"
         ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-        </div>
+        </div> -->
 
         <div id="institucional" class="gallery-item"
         ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
         <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
         </div>
 
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index != 0" class="gallery-item"
+        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
         ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
         </div>
 <!-- 

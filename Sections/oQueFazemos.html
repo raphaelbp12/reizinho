@@ -2,10 +2,10 @@
   <div class="container centralizado  ">
 
     <slick  class="galerias-fazemos" id="container-galerias-fazemos" settings="slickGaleriasConfig">
-      <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+      <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
       ng-if="$index < galleries_oQueFazemos.length/2"
       ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-      </div>
+      </div> -->
 
       <div id="institucional" class="gallery-item"
       ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
@@ -13,7 +13,6 @@
       </div>
 
       <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
-      ng-if="$index > galleries_oQueFazemos.length/2 || $index == galleries_oQueFazemos.length/2"
       ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
       </div>
 
