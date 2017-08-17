@@ -6,32 +6,18 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
         },
         controller: ['$scope','DataService','Common', function OQueFazemosController($scope, DataService, Common) {
           $scope.galleries_oQueFazemos = [];
+          $scope.common = Common;
           Common.calcGalleries($scope.data.galerias, $scope.galleries_oQueFazemos);
-
-          $scope.gallerySelected = $scope.galleries_oQueFazemos[0];
           console.log($scope.gallerySelected);
-
+          $scope.gallerySelected = {};
+          
           $scope.slickGaleriasConfig = {
-                    "slidesToShow": 7,
-                    "slidesToScroll": 7,
+                    "slidesToShow": 8,
+                    "slidesToScroll": 8,
                     "arrows": true,
                     "autoplay": false,
                     "dots": true,
                     responsive: [
-                      {
-                        breakpoint: 600,
-                        settings: {
-                          slidesToShow: 4,
-                          slidesToScroll: 4
-                        }
-                      },
-                      {
-                        breakpoint: 480,
-                        settings: {
-                          slidesToShow: 3,
-                          slidesToScroll: 3
-                        }
-                      }
                     ],
               method: {},
               event: {
@@ -66,29 +52,52 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
               }
           };
 
+          $scope.$watch(
+            function () {
+                return $scope.gallerySelected;
+            },
+            function (newValue, oldValue) {
+                if (!angular.equals(oldValue, newValue)) {                 
+                  if($scope.videosLoaded){
+                    $scope.slickFazemosConfig.slidesToShow = 1;
+                    $scope.slickFazemosConfig.slidesToScroll =  1;
+                    //992
+                    $scope.slickFazemosConfig.responsive[0].slidesToShow = 1;
+                    $scope.slickFazemosConfig.responsive[0].slidesToScroll =  1;
+                  } else {
+                    $scope.slickFazemosConfig.slidesToShow = (newValue.images.length >= 3) ? 3 : newValue.images.length;
+                    $scope.slickFazemosConfig.slidesToScroll =  $scope.slickBandasConfig.slidesToShow;
+                    //992
+                    $scope.slickFazemosConfig.responsive[0].slidesToShow = (newValue.images.length >= 1) ? 1 : newValue.images.length;
+                    $scope.slickFazemosConfig.responsive[0].slidesToScroll =  $scope.slickBandasConfig.responsive[0].slidesToShow;
+                  }
+                }
+            },
+            true);
+
           $scope.changeGallery = function (id) {
-                  // $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                  //     // $('#galeria-oQueFazemos').slick('slickRemove',0);
-                  // });
-                  //
-                  // $scope.gallerySelected = $scope.galleries_oQueFazemos[id];
-                  //
-                  // $scope.gallerySelected.images.forEach(function (image, imageIndex) {
-                  //     // $('#galeria-oQueFazemos').slick('slickAdd',"<div  class='oQueFazemos-gallery-item' style='background-image: url("+image.url_thumb+")'></div>");
-                  // });
 
-                  $scope.galleries_oQueFazemos.forEach(function (gallery, galleryIndex) {
-                    $('#container-galerias-fazemos #'+gallery.id).removeClass('gallery-selected');
-                  });
 
-                  console.log(id)
-                  $scope.arrayLoaded = false;
+            $scope.galleries_oQueFazemos.forEach(function (gallery, galleryIndex) {
+              $('#container-galerias-fazemos #'+gallery.id).removeClass('gallery-selected');
+            });
+            $('#container-galerias-fazemos #institucional').removeClass('gallery-selected');
+            $scope.arrayLoaded = false;
+            $scope.videosLoaded = false;
 
-                  $('#container-galerias-fazemos #'+id).addClass('gallery-selected');
-                  $scope.gallerySelected = $scope.galleries_oQueFazemos[id] ;
-                  $timeout(function(){
-                   $scope.arrayLoaded = true;
-                 },500);
+              if(id!= undefined){
+                $('#container-galerias-fazemos #'+id).addClass('gallery-selected');
+                $scope.gallerySelected= angular.copy( $scope.galleries_oQueFazemos[id]) ;
+              } else {
+                $('#container-galerias-fazemos #institucional').addClass('gallery-selected');
+                $scope.gallerySelected.images = [angular.copy($scope.data.video)];
+                $scope.videosLoaded = true;
+              }
+
+              $timeout(function(){
+                $scope.arrayLoaded = true;
+              },500);
+                  
           };
 
 
@@ -101,7 +110,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             //     "autoplaySpeed": 500,
             //     "dots": true
             // });
-            $scope.changeGallery(0);
+            $scope.changeGallery();
           });
 
         }],

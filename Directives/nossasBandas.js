@@ -8,7 +8,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             $scope.galleries_nossasBandas = [];
             $scope.common = Common;
             Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas);
-
+            $scope.gallerySelected = {};
 
             $scope.modalShow = false;
             $scope.modalImageIndex = 1;
@@ -39,27 +39,25 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                 }
             };
 
-            $scope.gallerySelected = $scope.galleries_nossasBandas[1];
-            
-
             $scope.$watch(
               function () {
                   return $scope.gallerySelected;
               },
               function (newValue, oldValue) {
-                  if (!angular.equals(oldValue, newValue)) {
-                    console.log('newVar', newValue)
-                    $scope.slickBandasConfig.slidesToShow = (newValue.images.length >= 5) ? 5 : newValue.images.length;
-                    $scope.slickBandasConfig.slidesToScroll =  $scope.slickBandasConfig.slidesToShow;
-                    //992
-                    $scope.slickBandasConfig.responsive[0].slidesToShow = (newValue.images.length >= 3) ? 3 : newValue.images.length;
-                    $scope.slickBandasConfig.responsive[0].slidesToScroll =  $scope.slickBandasConfig.responsive[0].slidesToShow;
-                    // //600
-                    // $scope.slickBandasConfig.responsive[1].slidesToShow = (newValue.images.length >= 2) ? 2 : newValue.images.length;
-                    // $scope.slickBandasConfig.responsive[1].slidesToScroll =  $scope.slickBandasConfig.responsive[1].slidesToShow;
-                    // //480
-                    // $scope.slickBandasConfig.responsive[2].slidesToShow = (newValue.images.length >= 1) ? 1 : newValue.images.length;
-                    // $scope.slickBandasConfig.responsive[2].slidesToScroll =  $scope.slickBandasConfig.responsive[2].slidesToShow;
+                  if (!angular.equals(oldValue, newValue)) {                 
+                    if($scope.videosLoaded){
+                      $scope.slickBandasConfig.slidesToShow = 1;
+                      $scope.slickBandasConfig.slidesToScroll =  1;
+                      //992
+                      $scope.slickBandasConfig.responsive[0].slidesToShow = 1;
+                      $scope.slickBandasConfig.responsive[0].slidesToScroll =  1;
+                    } else {
+                      $scope.slickBandasConfig.slidesToShow = (newValue.images.length >= 5) ? 5 : newValue.images.length;
+                      $scope.slickBandasConfig.slidesToScroll =  $scope.slickBandasConfig.slidesToShow;
+                      //992
+                      $scope.slickBandasConfig.responsive[0].slidesToShow = (newValue.images.length >= 1) ? 1 : newValue.images.length;
+                      $scope.slickBandasConfig.responsive[0].slidesToScroll =  $scope.slickBandasConfig.responsive[0].slidesToShow;
+                    }
                   }
               },
               true);
@@ -111,10 +109,10 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
 
                       if( (id != undefined)) {
                         $('#container-galerias #'+id).addClass('gallery-selected');
-                        $scope.gallerySelected = $scope.galleries_nossasBandas[id] ;
+                        $scope.gallerySelected = angular.copy($scope.galleries_nossasBandas[id]) ;
                       }else {
                         $('#container-galerias #institucional').addClass('gallery-selected');
-                        $scope.gallerySelected.images = $scope.data.videos;
+                        $scope.gallerySelected.images = [angular.copy($scope.data.video)];
                         $scope.videosLoaded = true;
                       }
                       $timeout(function(){
@@ -133,7 +131,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             };
 
             $(document).ready(function () {
-              $scope.changeGallery(0);
+              $scope.changeGallery();
             });
 
         }],

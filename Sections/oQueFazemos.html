@@ -3,22 +3,46 @@
 
     <slick  class="galerias-fazemos" id="container-galerias-fazemos" settings="slickGaleriasConfig">
       <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+      ng-if="$index < galleries_oQueFazemos.length/2"
+      ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+      </div>
+
+      <div id="institucional" class="gallery-item"
+      ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
+      <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
+      </div>
+
+      <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+      ng-if="$index > galleries_oQueFazemos.length/2 || $index == galleries_oQueFazemos.length/2"
       ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
       </div>
 
     </slick>
 
-  <div class="slick-supporter">
+  <div class="slick-supporter" ng-class="{'slickSupportVideo' : videosLoaded}">
     <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-oQueFazemos"
+    ng-class="{'slickGaleriaVideo' : videosLoaded}"
     settings="slickFazemosConfig" ng-if="arrayLoaded" dots="true">
 
       <div id="{{$index}}"
        ng-repeat='image in gallerySelected.images'
        class="oQueFazemos-gallery-item"
-       ng-class="!arrayLoaded ? 'hidden' : ''"
-       imageonload="{{image.url_thumb}}"
+       ng-class="{'hidden': !arrayLoaded , 'slickVideo' : videosLoaded} "
+       imageonload="{{ (videosLoaded) ? common.calcYoutubeThumbURL(image) : image.url_thumb}}"
        general="general"
-       ng-click="">
+       ng-click="(videosLoaded) ? '' : showModal($index);">
+
+       <iframe
+        width="100%"
+        height="100%"
+        allowfullscreen="allowfullscreen"
+        mozallowfullscreen="mozallowfullscreen"
+        msallowfullscreen="msallowfullscreen"
+        oallowfullscreen="oallowfullscreen"
+        webkitallowfullscreen="webkitallowfullscreen"
+        ng-src="{{common.calcYoutubeURL(image)}}"
+        ng-if="videosLoaded" >
+      </iframe>
      </div>
     </slick>
 

@@ -82,6 +82,18 @@
   overflow: hidden;
 }
 
+.oQueFazemos .slickVideo{
+  height: 400px;
+}
+
+.oQueFazemos .slickSupportVideo{
+  height: 420px;
+}
+
+.oQueFazemos .slickGaleriaVideo{
+  width: 50%;
+}
+
 
 @media (max-width: 992px) {
   .oQueFazemos .oQueFazemos-gallery-item {
@@ -100,7 +112,17 @@
   .oQueFazemos .galerias-fazemos{
     width: 100%;
   }
+  .oQueFazemos .slickGaleriaVideo{
+    width: 92%;
+  }
+
+  .oQueFazemos .slickVideo{
+    height: 600px;
+  }
   
+  .oQueFazemos .slickSupportVideo{
+    height: 620px;
+  }
 
 }
 

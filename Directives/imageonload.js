@@ -11,7 +11,6 @@ angular.module("App").directive("imageonload", [ '$compile', function ($compile)
       $compile(el)(scope);
       element.append(el);
       var image = new Image();
-      console.log('carregando')
       image.onload = function () {
         var divLoading = element.find('div')
         divLoading.remove();

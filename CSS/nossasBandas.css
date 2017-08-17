@@ -132,6 +132,18 @@
   overflow: hidden;
 }
 
+.nossasBandas .slickVideo{
+  height: 400px;
+}
+
+.nossasBandas .slickSupportVideo{
+  height: 420px;
+}
+
+.nossasBandas .slickGaleriaVideo{
+  width: 50%;
+}
+
 /*.nossasBandas-gallery-item iframe {
   background-repeat: no-repeat;
   background-size: 30px 30px;
@@ -156,6 +168,18 @@
   }
 
   .nossasBandas .slick-supporter{
+    height: 620px;
+  }
+
+  .nossasBandas .slickGaleriaVideo{
+    width: 92%;
+  }
+
+  .nossasBandas .slickVideo{
+    height: 600px;
+  }
+  
+  .nossasBandas .slickSupportVideo{
     height: 620px;
   }
 }
