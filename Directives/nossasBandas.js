@@ -112,7 +112,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                         $scope.gallerySelected = angular.copy($scope.galleries_nossasBandas[id]) ;
                       }else {
                         $('#container-galerias #institucional').addClass('gallery-selected');
-                        $scope.gallerySelected.images = [angular.copy($scope.data.video)];
+                        $scope.gallerySelected.images = angular.copy($scope.data.videos);
                         $scope.videosLoaded = true;
                       }
                       $timeout(function(){

@@ -12,8 +12,8 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
           $scope.gallerySelected = {};
           
           $scope.slickGaleriasConfig = {
-                    "slidesToShow": 8,
-                    "slidesToScroll": 8,
+                    "slidesToShow": 7,
+                    "slidesToScroll": 7,
                     "arrows": true,
                     "autoplay": false,
                     "dots": true,
@@ -90,7 +90,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                 $scope.gallerySelected= angular.copy( $scope.galleries_oQueFazemos[id]) ;
               } else {
                 $('#container-galerias-fazemos #institucional').addClass('gallery-selected');
-                $scope.gallerySelected.images = [angular.copy($scope.data.video)];
+                $scope.gallerySelected.images = angular.copy($scope.data.videos);
                 $scope.videosLoaded = true;
               }
 

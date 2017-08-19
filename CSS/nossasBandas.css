@@ -41,8 +41,7 @@
 }
 
 .nossasBandas .galerias-bandas {
-    width: 70%;
-    margin-bottom: 30px;
+    width: 60%;
 }
 
 .text-nossasBandas{
@@ -142,6 +141,14 @@
 
 .nossasBandas .slickGaleriaVideo{
   width: 50%;
+}
+
+.nossasBandas .icone-video{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 10%;
 }
 
 /*.nossasBandas-gallery-item iframe {

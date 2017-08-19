@@ -1,22 +1,25 @@
 <div id='o-que-fazemos' class="section centralizado oQueFazemos" ng-style="{'background-image':'url({{data.background}})'}">
-  <div class="container centralizado  ">
+  <div class="container centralizado  " >
+    <div class="centralizado" style="width: 100%; flex-direction: row; position: relative;margin-bottom: 30px" id="container-galerias-fazemos">
+      <slick  class="galerias-fazemos"  settings="slickGaleriasConfig">
+        <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+        ng-if="$index < galleries_oQueFazemos.length/2"
+        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+        </div> -->
 
-    <slick  class="galerias-fazemos" id="container-galerias-fazemos" settings="slickGaleriasConfig">
-      <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
-      ng-if="$index < galleries_oQueFazemos.length/2"
-      ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-      </div> -->
+        
 
-      <div id="institucional" class="gallery-item"
+        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+        </div>
+
+      </slick>
+
+      <div id="institucional" class="gallery-item icone-video"
       ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
       <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
       </div>
-
-      <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
-      ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-      </div>
-
-    </slick>
+    </div>
 
   <div class="slick-supporter" ng-class="{'slickSupportVideo' : videosLoaded}">
     <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-oQueFazemos"

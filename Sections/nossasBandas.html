@@ -1,27 +1,31 @@
 <div id='nossas-bandas' class="section nossasBandas">
     <!-- <slick class="galerias-bandas container-galerias" id="container-galerias" autoplay="true" autoplaySpeed="500" fade="true" init-onload=true> -->
-    <div class="container centralizado  ">
-      <slick  class="galerias-bandas" id="container-galerias" settings="slickGaleriasConfig">
+    <div class="container centralizado"   >
+      <div class="centralizado" style="width: 100%; flex-direction: row; position: relative;margin-bottom: 30px" id="container-galerias">
+        <slick  class="galerias-bandas" id="" settings="slickGaleriasConfig">
 
-        <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index == 0" class="gallery-item"
-        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-        </div> -->
-
-        <div id="institucional" class="gallery-item"
-        ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
-        <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
-        </div>
-
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
-        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-        </div>
-<!-- 
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' 
-        ng-if="$index > galleries_nossasBandas.length || $index = galleries_nossasBandas.length" class="gallery-item"
+          <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index == 0" class="gallery-item"
           ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
           </div> -->
 
-      </slick>
+          
+
+          <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
+          ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+          </div>
+  <!-- 
+          <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' 
+          ng-if="$index > galleries_nossasBandas.length || $index = galleries_nossasBandas.length" class="gallery-item"
+            ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+            </div> -->
+
+        </slick>
+
+        <div id="institucional" class="gallery-item icone-video"
+        ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
+        <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
+        </div>
+      </div>
 
 
 

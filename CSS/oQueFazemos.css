@@ -29,8 +29,8 @@
 }
 
 .oQueFazemos .galerias-fazemos {
-    width: 70%;
-    margin-bottom: 30px;
+    width: 60%;
+    /* margin-bottom: 30px; */
 }
 
 .oQueFazemos{
@@ -92,6 +92,14 @@
 
 .oQueFazemos .slickGaleriaVideo{
   width: 50%;
+}
+
+.oQueFazemos .icone-video{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  /* width: 5%; */
 }
 
 
