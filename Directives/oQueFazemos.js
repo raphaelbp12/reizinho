@@ -31,7 +31,8 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                     "slidesToShow": 3,
                     "slidesToScroll": 3,
                     "arrows": true,
-                    "autoplay": false,
+                    "autoplay": true,
+                    "autoplaySpeed": 2000,
                     "dots": true,
                     responsive: [
                       {
@@ -109,6 +110,31 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             ],
             theme: "node_modules/videogular-themes-default/videogular.css"
           };
+
+          $scope.APIS_STATE = [];
+          $scope.onPlayerReady = function(API, index) {
+            $scope.APIS_STATE[index] = API;
+          }
+
+          
+          $scope.changeState = function(index){
+            if(videoPlaying()) {
+              $('#galeria-oQueFazemos').slick('slickPause');
+            } else {
+              $('#galeria-oQueFazemos').slick('slickPlay');
+            }
+          }
+
+          var videoPlaying = function (){
+            var isPlaying = false;
+            $scope.APIS_STATE.forEach(function (API) {
+              if(API.currentState == 'play') {
+                isPlaying = true;
+                return;
+              } 
+            });
+            return isPlaying;
+          }
 
 
           $(document).ready(function (){

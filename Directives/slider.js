@@ -31,6 +31,31 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
                 theme: "node_modules/videogular-themes-default/videogular.css"
               };
 
+            $scope.APIS_STATE = [];
+            $scope.onPlayerReady = function(API, index) {
+            $scope.APIS_STATE[index] = API;
+            }
+
+            
+            $scope.changeState = function(index){
+            if(videoPlaying()) {
+                $('#slider').slick('slickPause');
+            } else {
+                $('#slider').slick('slickPlay');
+            }
+            }
+
+            var videoPlaying = function (){
+            var isPlaying = false;
+            $scope.APIS_STATE.forEach(function (API) {
+                if(API.currentState == 'play') {
+                isPlaying = true;
+                return;
+                } 
+            });
+            return isPlaying;
+            }
+
 
             $scope.openLink = function(link) {
               if(link && link != '') $window.open(link);

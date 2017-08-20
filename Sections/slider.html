@@ -5,7 +5,7 @@
       ng-src="{{common.calcYoutubeURL(item)}}">
     </iframe> -->
 
-    <videogular vg-theme="config.theme">
+    <videogular vg-player-ready="onPlayerReady($API, $index)" vg-theme="config.theme" ng-click="changeState($index)">
         <vg-media vg-src="config.sources">
         </vg-media>
     

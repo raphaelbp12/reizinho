@@ -138,6 +138,31 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
               ],
               theme: "node_modules/videogular-themes-default/videogular.css"
             };
+
+            $scope.APIS_STATE = [];
+            $scope.onPlayerReady = function(API, index) {
+              $scope.APIS_STATE[index] = API;
+            }
+  
+            
+            $scope.changeState = function(index){
+              if(videoPlaying()) {
+                $('#galeria-nossasBandas').slick('slickPause');
+              } else {
+                $('#galeria-nossasBandas').slick('slickPlay');
+              }
+            }
+  
+            var videoPlaying = function (){
+              var isPlaying = false;
+              $scope.APIS_STATE.forEach(function (API) {
+                if(API.currentState == 'play') {
+                  isPlaying = true;
+                  return;
+                } 
+              });
+              return isPlaying;
+            }
   
 
             $(document).ready(function () {
