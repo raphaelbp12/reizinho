@@ -1,4 +1,5 @@
 <div id='o-que-fazemos' class="section centralizado oQueFazemos" ng-style="{'background-image':'url({{data.background}})'}">
+ 
   <div class="container centralizado  " >
     <div class="centralizado" style="width: 100%; flex-direction: row; position: relative;margin-bottom: 30px" id="container-galerias-fazemos">
       <slick  class="galerias-fazemos"  settings="slickGaleriasConfig">
@@ -22,6 +23,8 @@
     </div>
 
   <div class="slick-supporter" ng-class="{'slickSupportVideo' : videosLoaded}">
+
+    
     <slick  init-onload="false" data="arrayLoaded" class="galeria" id="galeria-oQueFazemos"
     ng-class="{'slickGaleriaVideo' : videosLoaded}"
     settings="slickFazemosConfig" ng-if="arrayLoaded" dots="true">
@@ -30,22 +33,39 @@
        ng-repeat='image in gallerySelected.images'
        class="oQueFazemos-gallery-item"
        ng-class="{'hidden': !arrayLoaded , 'slickVideo' : videosLoaded} "
-       imageonload="{{ (videosLoaded) ? common.calcYoutubeThumbURL(image) : image.url_thumb}}"
+       imageonload="{{ (videosLoaded) ? null : image.url_thumb}}"
        general="general"
        ng-click="(videosLoaded) ? '' : showModal($index);">
 
-       <iframe
-        width="100%"
-        height="100%"
-        allowfullscreen="allowfullscreen"
-        mozallowfullscreen="mozallowfullscreen"
-        msallowfullscreen="msallowfullscreen"
-        oallowfullscreen="oallowfullscreen"
-        webkitallowfullscreen="webkitallowfullscreen"
-        ng-src="{{common.calcYoutubeURL(image)}}"
-        ng-if="videosLoaded" >
-      </iframe>
-     </div>
+       <videogular ng-if="videosLoaded" vg-theme="config.theme">
+          <vg-media vg-src="config.sources">
+          </vg-media>
+      
+          <vg-controls>
+            <vg-play-pause-button></vg-play-pause-button>
+            <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+            <vg-scrub-bar>
+              <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+            </vg-scrub-bar>
+            <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+            <vg-volume>
+              <vg-mute-button></vg-mute-button>
+              <vg-volume-bar></vg-volume-bar>
+            </vg-volume>
+            <vg-fullscreen-button></vg-fullscreen-button>
+          </vg-controls>
+      
+          <vg-overlay-play></vg-overlay-play>
+          <vg-poster vg-url='common.calcYoutubeThumbURL(image.url)'></vg-poster>
+        </videogular>
+      
+      <!-- <span ng-if="videosLoaded" style="position: absolute; right: 0; left: 0; bottom: 0px;" ng-bind-html="image.description"></span> -->
+
+      
+     </div> 
+
+     
+      
     </slick>
 
 
@@ -56,7 +76,7 @@
   </div> -->
   <!-- <div class="ribbon-border"></div> -->
 
-    <div class="title-oQueFazemos">{{gallerySelected.name}}</div>
-    <div class="text-oQueFazemos">{{gallerySelected.description}}</div>
+    <div class="title-oQueFazemos" ng-bind-html="gallerySelected.name"></div>
+    <div class="text-oQueFazemos" ng-bind-html="gallerySelected.description"></div>
   </div>
 </div>

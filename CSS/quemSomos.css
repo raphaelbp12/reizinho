@@ -153,7 +153,9 @@
 }
 
 .ac-quemsomos-text{
-    height: 0px;
+    /* height: 0px; */
+    height: auto;
+    max-height: 0px;
     overflow: hidden;
     display: block;
     color: white;
@@ -171,7 +173,8 @@
 }
 
 .ac-quemsomos-text.active{
-    height: 140px;
+    /* height: auto; */
+    max-height: 100px;
     padding: 10px 20px 15px 10px;
 
     -webkit-transition:	all 0.3s linear;
@@ -180,9 +183,21 @@
     transition: all 0.3s linear;
 }
 
+/* .ac-quemsomos-text.visao.active{
+  height: 30px;
+}
+
+.ac-quemsomos-text.missao.active{
+  height: 80px;
+
+}
+.ac-quemsomos-text.valores.active{
+  height: 30px;
+} */
+
 .div-missao-valores-visao{
   flex-direction: column;
-  min-height: 430px;
+  min-height: 350px;
 }
 
 
@@ -200,7 +215,7 @@
   }
 
   .ac-quemsomos-text.active{
-    height: 250px;
+    max-height: 200px;
   }
 
 }

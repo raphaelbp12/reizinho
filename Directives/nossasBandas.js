@@ -4,7 +4,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             data: '=',
             general: '='
         },
-        controller: ['$scope', 'DataService', 'Common', 'ModalService', function NossasBandasController($scope, DataService, Common, ModalService) {
+        controller: ['$scope', 'DataService', 'Common', 'ModalService', '$sce', function NossasBandasController($scope, DataService, Common, ModalService, $sce) {
             $scope.galleries_nossasBandas = [];
             $scope.common = Common;
             Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas);
@@ -112,6 +112,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                         $scope.gallerySelected = angular.copy($scope.galleries_nossasBandas[id]) ;
                       }else {
                         $('#container-galerias #institucional').addClass('gallery-selected');
+                        $scope.gallerySelected = {}
                         $scope.gallerySelected.images = angular.copy($scope.data.videos);
                         $scope.videosLoaded = true;
                       }
@@ -129,6 +130,15 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                 $scope.modalImageIndex = index;
                 $scope.modalShow = true;
             };
+
+
+            $scope.config = {
+              sources: [
+                {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"}
+              ],
+              theme: "node_modules/videogular-themes-default/videogular.css"
+            };
+  
 
             $(document).ready(function () {
               $scope.changeGallery();

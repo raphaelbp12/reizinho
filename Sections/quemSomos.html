@@ -22,29 +22,28 @@
 
         <div class="row">
 
-      <div class="col-md-7 text col-xs-12 ">
-          {{data.text}}
+      <div class="col-md-7 text col-xs-12 " ng-bind-html="data.text">
       </div>
 
       <div class="display-flex-all-centered div-missao-valores-visao  col-md-5 col-xs-12">
-          <div class="ac-quemsomos-button" ng-click="toggleVisao()">
+          <div class="ac-quemsomos-button visao" ng-click="toggleVisao()">
               <div class="content">
                   NOSSA VISÃO <span aria-hidden="true"
                                   class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
-                <div class="ac-quemsomos-text" ng-class="visaoCtrl ? 'active' : ''">{{data.visao}}</div>
+                <div class="ac-quemsomos-text" ng-class="visaoCtrl ? 'active' : ''" ng-bind-html="data.visao">{{}}</div>
               </div>
           </div>
-          <div class="ac-quemsomos-button" ng-click="toggleMissao()">
+          <div class="ac-quemsomos-button missao" ng-click="toggleMissao()">
 
             <div class="content">NOSSA MISSÃO <span aria-hidden="true"
                                                               class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
-              <div class="ac-quemsomos-text" ng-class="missaoCtrl ? 'active' : ''">{{data.missao}}</div>
+              <div class="ac-quemsomos-text" ng-class="missaoCtrl ? 'active' : ''" ng-bind-html="data.missao"></div>
               </div>
           </div>
-          <div class="ac-quemsomos-button" ng-click="toggleValores()">
+          <div class="ac-quemsomos-button valores" ng-click="toggleValores()">
               <div class="content">NOSSOS VALORES <span aria-hidden="true"
                                                                 class="glyphicon glyphicon-chevron-down ac-quemsomos-button-chevron"></span>
-              <div class="ac-quemsomos-text" ng-class="valoresCtrl ? 'active' : ''">{{data.valores}}</div>
+              <div class="ac-quemsomos-text" ng-class="valoresCtrl ? 'active' : ''" ng-bind-html="data.valores"></div>
               </div>
           </div>
       </div>

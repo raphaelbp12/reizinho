@@ -151,6 +151,11 @@
   width: 10%;
 }
 
+.nossasBandas videogular vg-poster img, [videogular] vg-poster img {
+  width: 100%;
+  height: 100%;
+}
+
 /*.nossasBandas-gallery-item iframe {
   background-repeat: no-repeat;
   background-size: 30px 30px;

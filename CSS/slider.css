@@ -67,7 +67,7 @@
     text-align: center;
 
     opacity: .25;
-    color: black;
+    color: #cccccc;
 
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -99,3 +99,8 @@
 .slick-dotted.slick-slider{
   margin-bottom: 0;
 }
+
+.slider videogular vg-poster img, [videogular] vg-poster img {
+    width: 100%;
+    height: 100%;
+  }

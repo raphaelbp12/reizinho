@@ -102,6 +102,10 @@
   /* width: 5%; */
 }
 
+.oQueFazemos videogular vg-poster img, [videogular] vg-poster img {
+  width: 100%;
+  height: 100%;
+}
 
 @media (max-width: 992px) {
   .oQueFazemos .oQueFazemos-gallery-item {

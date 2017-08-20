@@ -4,11 +4,10 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             data: '=',
             general: '='
         },
-        controller: ['$scope','DataService','Common', function OQueFazemosController($scope, DataService, Common) {
+        controller: ['$scope','DataService','Common', '$sce', function OQueFazemosController($scope, DataService, Common, $sce) {
           $scope.galleries_oQueFazemos = [];
           $scope.common = Common;
           Common.calcGalleries($scope.data.galerias, $scope.galleries_oQueFazemos);
-          console.log($scope.gallerySelected);
           $scope.gallerySelected = {};
           
           $scope.slickGaleriasConfig = {
@@ -51,6 +50,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                   }
               }
           };
+          
 
           $scope.$watch(
             function () {
@@ -66,10 +66,10 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                     $scope.slickFazemosConfig.responsive[0].slidesToScroll =  1;
                   } else {
                     $scope.slickFazemosConfig.slidesToShow = (newValue.images.length >= 3) ? 3 : newValue.images.length;
-                    $scope.slickFazemosConfig.slidesToScroll =  $scope.slickBandasConfig.slidesToShow;
+                    $scope.slickFazemosConfig.slidesToScroll =  $scope.slickFazemosConfig.slidesToShow;
                     //992
                     $scope.slickFazemosConfig.responsive[0].slidesToShow = (newValue.images.length >= 1) ? 1 : newValue.images.length;
-                    $scope.slickFazemosConfig.responsive[0].slidesToScroll =  $scope.slickBandasConfig.responsive[0].slidesToShow;
+                    $scope.slickFazemosConfig.responsive[0].slidesToScroll =  $scope.slickFazemosConfig.responsive[0].slidesToShow;
                   }
                 }
             },
@@ -90,14 +90,24 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                 $scope.gallerySelected= angular.copy( $scope.galleries_oQueFazemos[id]) ;
               } else {
                 $('#container-galerias-fazemos #institucional').addClass('gallery-selected');
+                $scope.gallerySelected = {}
                 $scope.gallerySelected.images = angular.copy($scope.data.videos);
                 $scope.videosLoaded = true;
+                
               }
 
               $timeout(function(){
                 $scope.arrayLoaded = true;
               },500);
                   
+          };
+
+
+          $scope.config = {
+            sources: [
+              {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"}
+            ],
+            theme: "node_modules/videogular-themes-default/videogular.css"
           };
 
 
