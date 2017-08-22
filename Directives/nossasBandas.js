@@ -145,13 +145,15 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             }
   
             
-            $scope.changeState = function(index){
+            $scope.changeState = function(state,index){
+              $scope.APIS_STATE[index].currentState = state;
               if(videoPlaying()) {
                 $('#galeria-nossasBandas').slick('slickPause');
               } else {
                 $('#galeria-nossasBandas').slick('slickPlay');
               }
             }
+
   
             var videoPlaying = function (){
               var isPlaying = false;

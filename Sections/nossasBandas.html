@@ -58,7 +58,7 @@
           </iframe> -->
 
 
-          <videogular vg-player-ready="onPlayerReady($API, $index)" ng-if="videosLoaded" vg-theme="config.theme" ng-click="changeState($index)">
+          <videogular vg-player-ready="onPlayerReady($API, $index)" vg-update-state="changeState($state, $index)" ng-if="videosLoaded" vg-theme="config.theme">
               <vg-media vg-src="config.sources">
               </vg-media>
           

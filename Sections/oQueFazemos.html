@@ -37,7 +37,7 @@
        general="general"
        ng-click="(videosLoaded) ? '' : showModal($index);">
 
-       <videogular vg-player-ready="onPlayerReady($API, $index)" ng-if="videosLoaded" vg-theme="config.theme" ng-click="changeState($index)">
+       <videogular vg-player-ready="onPlayerReady($API, $index)" ng-if="videosLoaded" vg-theme="config.theme" vg-update-state="changeState($state, $index)">
           <vg-media vg-src="config.sources">
           </vg-media>
       

@@ -37,12 +37,13 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
             }
 
             
-            $scope.changeState = function(index){
-            if(videoPlaying()) {
-                $('#slider').slick('slickPause');
-            } else {
-                $('#slider').slick('slickPlay');
-            }
+            $scope.changeState = function(state,index){
+                $scope.APIS_STATE[index].currentState = state;
+                if(videoPlaying()) {
+                    $('#slider').slick('slickPause');
+                } else {
+                    $('#slider').slick('slickPlay');
+                }
             }
 
             var videoPlaying = function (){

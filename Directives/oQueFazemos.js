@@ -117,7 +117,8 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
           }
 
           
-          $scope.changeState = function(index){
+          $scope.changeState = function(state,index){
+            $scope.APIS_STATE[index].currentState = state;
             if(videoPlaying()) {
               $('#galeria-oQueFazemos').slick('slickPause');
             } else {
