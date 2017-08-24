@@ -86,7 +86,14 @@
 .redes-sociais img:hover{
   opacity: 0.5;
 }
+.slick-prev:before, .slick-next:before {
+    font-size: 25px;
+}
 
+.slick-prev, .slick-next {
+    width: 25px;
+    height: 25px;
+}
 
 /* fonts */
 @font-face {

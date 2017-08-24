@@ -102,7 +102,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                       $scope.galleries_nossasBandas.forEach(function (gallery, galleryIndex) {
                         $('#container-galerias #'+gallery.id).removeClass('gallery-selected');
                       });
-                      $('#container-galerias #institucional').removeClass('gallery-selected');
+                      $('#institucional-bandas').removeClass('gallery-selected');
 
                       $scope.arrayLoaded = false;
                       $scope.videosLoaded = false;
@@ -111,7 +111,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
                         $('#container-galerias #'+id).addClass('gallery-selected');
                         $scope.gallerySelected = angular.copy($scope.galleries_nossasBandas[id]) ;
                       }else {
-                        $('#container-galerias #institucional').addClass('gallery-selected');
+                        $('#institucional-bandas').addClass('gallery-selected');
                         $scope.gallerySelected = {}
                         $scope.gallerySelected.images = angular.copy($scope.data.videos);
                         $scope.videosLoaded = true;
@@ -168,7 +168,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
   
 
             $(document).ready(function () {
-              $scope.changeGallery();
+              $scope.changeGallery(0);
             });
 
         }],

@@ -1,7 +1,10 @@
-<div id='nossas-bandas' class="section nossasBandas">
+<div id='nossas-bandas' class="section nossasBandas" style="position: relative">
     <!-- <slick class="galerias-bandas container-galerias" id="container-galerias" autoplay="true" autoplaySpeed="500" fade="true" init-onload=true> -->
     <div class="container centralizado"   >
-      <div class="centralizado" style="width: 100%; flex-direction: row; position: relative;margin-bottom: 30px" id="container-galerias">
+      <div class="title">NOSSAS BANDAS</div>
+      <div class="ribbon-border"></div>
+
+      <div class="centralizado" style="width: 100%; flex-direction: row; " id="container-galerias">
         <slick  class="galerias-bandas" id="" settings="slickGaleriasConfig">
 
           <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' ng-if="$index == 0" class="gallery-item"
@@ -21,10 +24,12 @@
 
         </slick>
 
-        <div id="institucional" class="gallery-item icone-video"
-        ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
-        <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
-        </div>
+        
+      </div>
+
+      <div id="institucional-bandas" class="gallery-item icone-video"
+      ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
+      <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
       </div>
 
 
@@ -87,7 +92,7 @@
   </div>
 
 
-    <div modal-gallery show="modalShow" image-index="modalImageIndex" gallery="gallerySelected">
+    <div modal-gallery-bandas show="modalShow" image-index="modalImageIndex" gallery="gallerySelected" nossasBandas="true">
     </div>
     <div class="ribbon-border"></div>
     <div class="text-nossasBandas">{{gallerySelected.description}}</div>

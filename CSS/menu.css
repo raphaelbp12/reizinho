@@ -1,9 +1,10 @@
 .navbar-nav{
-    width: 900px;
+    width: 862px;
     float:none;
     display:flex;
     justify-content: center;
     margin: 0 auto;
+    flex-direction: row;
 }
 
 .li-not-scrolled{
@@ -20,9 +21,7 @@ nav.scrolled li {
     padding-top: 20px;
 }
 
-.navbar li {
 
-}
 
 .navbar {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0.8+56,0+100 */
@@ -122,6 +121,12 @@ ul:hover > li a.a-menu {
     -o-transition: all 0.3s ease-out;
     -ms-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out;
+
+    margin: 0 auto;
+}
+
+.menu-inicio{
+    display:none !important;
 }
 
 /*Não alterar o fundo ao ativar o item central do menu(logo)*/
@@ -130,4 +135,40 @@ ul:hover > li a.a-menu {
 }
 #logo {
   padding-top: 10px;
+  display:block !important;
+}
+
+
+@media (max-width: 768px) {
+    .navbar-nav{
+        flex-direction: column;
+        width: 300px;
+    }    
+    .menu-inicio{
+        display:block !important;
+    }
+
+    #logo { 
+        display: none !important;
+    }
+    
+    .li-not-scrolled{
+        padding-top: 0;
+    }
+
+    .navbar-nav li{
+        padding-top:0;
+    }
+    nav.scrolled li{
+        padding-top: 0;
+    }
+
+    .collapsing, .in {
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%,  rgba(0, 0, 0, 0.7) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.7) 0%,  rgba(0, 0, 0, 0.7) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%,  rgba(0, 0, 0, 0.7) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
+    
+    }
+
 }

@@ -4,11 +4,15 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             data: '=',
             general: '='
         },
-        controller: ['$scope','DataService','Common', '$sce', function OQueFazemosController($scope, DataService, Common, $sce) {
+        controller: ['$scope','DataService','Common', '$sce', 'ModalService', function OQueFazemosController($scope, DataService, Common, $sce, ModalService) {
           $scope.galleries_oQueFazemos = [];
           $scope.common = Common;
           Common.calcGalleries($scope.data.galerias, $scope.galleries_oQueFazemos);
           $scope.gallerySelected = {};
+
+          
+          $scope.modalShow = false;
+          $scope.modalImageIndex = 1;
           
           $scope.slickGaleriasConfig = {
                     "slidesToShow": 7,
@@ -52,6 +56,10 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
               }
           };
           
+          $scope.showModal = function(index) {
+            $scope.modalImageIndex = index;
+            $scope.modalShow = true;
+        };
 
           $scope.$watch(
             function () {
@@ -82,7 +90,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             $scope.galleries_oQueFazemos.forEach(function (gallery, galleryIndex) {
               $('#container-galerias-fazemos #'+gallery.id).removeClass('gallery-selected');
             });
-            $('#container-galerias-fazemos #institucional').removeClass('gallery-selected');
+            $('#institucional-fazemos').removeClass('gallery-selected');
             $scope.arrayLoaded = false;
             $scope.videosLoaded = false;
 
@@ -90,7 +98,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
                 $('#container-galerias-fazemos #'+id).addClass('gallery-selected');
                 $scope.gallerySelected= angular.copy( $scope.galleries_oQueFazemos[id]) ;
               } else {
-                $('#container-galerias-fazemos #institucional').addClass('gallery-selected');
+                $('#institucional-fazemos').addClass('gallery-selected');
                 $scope.gallerySelected = {}
                 $scope.gallerySelected.images = angular.copy($scope.data.videos);
                 $scope.videosLoaded = true;
@@ -147,7 +155,7 @@ angular.module('App').directive("oQueFazemos", ['DataService', 'Common', '$timeo
             //     "autoplaySpeed": 500,
             //     "dots": true
             // });
-            $scope.changeGallery();
+            $scope.changeGallery(0);
           });
 
         }],

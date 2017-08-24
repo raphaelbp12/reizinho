@@ -9,7 +9,7 @@
 }
 
 .nossasBandas .gallery-item {
-  width: 250px;
+  /* width: 250px; */
   min-height: 200px !important;
   height: auto;
   background-repeat: no-repeat;
@@ -28,12 +28,27 @@
   transition: all 0.3s ease-out;
 }
 
+.nossasBandas .title {
+  font-family: ErasBold;
+  font-size: 50px;
+  color: #fff;
+}
 
 .nossasBandas{
 
   padding: 90px 0 60px 0;
-  background: #393B41;
+  background: #3c3d43;
   color: #fff;
+}
+
+.nossasBandas .ribbon-border{
+  margin-top: 10px;
+  width: 220px;
+  height: 5px;
+  background: -moz-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(229, 189, 71, 1) 0%,  rgba(237, 220, 170, 1) 50%,  rgba(229, 189, 71, 1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc000000', endColorstr='#00000000', GradientType=0); /* IE6-9 */
 }
 
 .galeriaModal {
@@ -42,6 +57,8 @@
 
 .nossasBandas .galerias-bandas {
     width: 60%;
+    display: flex;
+    justify-content: center;
 }
 
 .text-nossasBandas{
@@ -132,11 +149,11 @@
 }
 
 .nossasBandas .slickVideo{
-  height: 400px;
+  height: 350px;
 }
 
 .nossasBandas .slickSupportVideo{
-  height: 420px;
+  height: 370px;
 }
 
 .nossasBandas .slickGaleriaVideo{
@@ -145,10 +162,9 @@
 
 .nossasBandas .icone-video{
   position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 10%;
+  top: 25px;
+  right: 130px;
+  width: 10% !important;
 }
 
 .nossasBandas videogular vg-poster img, [videogular] vg-poster img {
@@ -193,6 +209,28 @@
   
   .nossasBandas .slickSupportVideo{
     height: 620px;
+  }
+
+  .nossasBandas .galerias-bandas .slick-track div + div {
+    margin-left: 30px;
+  }
+
+  .nossasBandas .icone-video{
+    top: 25px;
+  }
+  .oQueFazemos .icone-video{
+    right: 100px;
+  }
+
+  .nossasBandas .gallery-item{
+    width: 200px;
+  }
+
+  .nossasBandas .slick-track {
+    width: 600px;
+  }
+  .nossasBandas .galerias-bandas{
+    width: 100%;
   }
 }
 
