@@ -13,7 +13,7 @@
 
           
 
-          <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas' class="gallery-item"
+          <div id="{{gallery.id}}" ng-repeat='gallery in galleries_nossasBandas track by $index' class="gallery-item"
           ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
           </div>
   <!-- 
@@ -43,7 +43,7 @@
       settings="slickBandasConfig" ng-if="arrayLoaded" dots="true">
 
         <div id="{{$index}}"
-         ng-repeat='image in gallerySelected.images'
+         ng-repeat='image in gallerySelected.images track by $index'
          class="nossasBandas-gallery-item"
          ng-class="{'hidden': !arrayLoaded , 'slickVideo' : videosLoaded} "
          imageonload="{{ (videosLoaded) ? null : image.url_thumb}}"
@@ -64,7 +64,7 @@
 
 
           <videogular vg-player-ready="onPlayerReady($API, $index)" vg-update-state="changeState($state, $index)" ng-if="videosLoaded" vg-theme="config.theme">
-              <vg-media vg-src="config.sources">
+              <vg-media vg-src="config.sources[$index]">
               </vg-media>
           
               <vg-controls>
@@ -82,7 +82,7 @@
               </vg-controls>
           
               <vg-overlay-play></vg-overlay-play>
-              <vg-poster vg-url='common.calcYoutubeThumbURL(image.url)'></vg-poster>
+              <vg-poster vg-url='data.videos[$index].cover'></vg-poster>
             </videogular>
           
        </div>

@@ -1,12 +1,12 @@
 <div id='slider' class='slider'>
-  <div class='slider-item' ng-repeat='item in data.videos' ng-if="item != '' && item != false">
+  <div class='slider-item' ng-repeat='item in data.videos track by $index' ng-if="item != '' && item != false && item != '#'">
     <!-- <iframe width="100%" height="100%"
     allowfullscreen="allowfullscreen" mozallowfullscreen="mozallowfullscreen" msallowfullscreen="msallowfullscreen" oallowfullscreen="oallowfullscreen" webkitallowfullscreen="webkitallowfullscreen"
       ng-src="{{common.calcYoutubeURL(item)}}">
     </iframe> -->
 
     <videogular vg-player-ready="onPlayerReady($API, $index)" vg-update-state="changeState($state, $index)" vg-theme="config.theme">
-        <vg-media vg-src="config.sources">
+        <vg-media vg-src="config.sources[$index]">
         </vg-media>
     
         <vg-controls>
@@ -24,7 +24,7 @@
         </vg-controls>
     
         <vg-overlay-play></vg-overlay-play>
-        <vg-poster vg-url='common.calcYoutubeThumbURL(item)'></vg-poster>
+        <vg-poster vg-url='data.videos[$index].cover'></vg-poster>
       </videogular>
       
   </div>

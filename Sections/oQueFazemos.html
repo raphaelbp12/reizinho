@@ -13,7 +13,7 @@
 
         
 
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
+        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos track by $index' class="gallery-item"
         ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
         </div>
 
@@ -35,7 +35,7 @@
     settings="slickFazemosConfig" ng-if="arrayLoaded" dots="true">
 
       <div id="{{$index}}"
-       ng-repeat='image in gallerySelected.images'
+       ng-repeat='image in gallerySelected.images track by $index'
        class="oQueFazemos-gallery-item"
        ng-class="{'hidden': !arrayLoaded , 'slickVideo' : videosLoaded} "
        imageonload="{{ (videosLoaded) ? null : image.url_thumb}}"
@@ -43,7 +43,7 @@
        ng-click="(videosLoaded) ? '' : showModal($index);">
 
        <videogular vg-player-ready="onPlayerReady($API, $index)" ng-if="videosLoaded" vg-theme="config.theme" vg-update-state="changeState($state, $index)">
-          <vg-media vg-src="config.sources">
+          <vg-media vg-src="config.sources[$index]">
           </vg-media>
       
           <vg-controls>
@@ -61,7 +61,7 @@
           </vg-controls>
       
           <vg-overlay-play></vg-overlay-play>
-          <vg-poster vg-url='common.calcYoutubeThumbURL(image.url)'></vg-poster>
+          <vg-poster vg-url='data.videos[$index].cover'></vg-poster>
         </videogular>
       
       <!-- <span ng-if="videosLoaded" style="position: absolute; right: 0; left: 0; bottom: 0px;" ng-bind-html="image.description"></span> -->

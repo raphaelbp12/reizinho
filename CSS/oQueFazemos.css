@@ -1,11 +1,12 @@
 .oQueFazemos .oQueFazemos-gallery-item{
     width: auto;
-    height: 350px;
+    height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50%;
-    /*cursor: pointer;*/
+    cursor: pointer;
     position: relative;
+
 }
 
 .oQueFazemos .gallery-item {
@@ -78,7 +79,7 @@
 
 .oQueFazemos .slick-supporter{
   width: 100%;
-  height: 370px;
+  height: 320px;
   overflow: hidden;
 }
 

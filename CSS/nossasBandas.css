@@ -164,7 +164,8 @@
   position: absolute;
   top: 25px;
   right: 130px;
-  width: 10% !important;
+  width: 100px;
+  height: 100px;
 }
 
 .nossasBandas videogular vg-poster img, [videogular] vg-poster img {
@@ -217,9 +218,8 @@
 
   .nossasBandas .icone-video{
     top: 25px;
-  }
-  .oQueFazemos .icone-video{
-    right: 100px;
+    width: 100px !important;
+    height: 100px !important;
   }
 
   .nossasBandas .gallery-item{

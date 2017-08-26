@@ -2,8 +2,7 @@ angular.module("App").directive("imageonload", [ '$compile', function ($compile)
   return {
     restrict: "A",
     scope: {
-        general: '=',
-        videosLoaded: '='
+        general: '='
     },
     link: function (scope, element, attributes) {
       if(attributes.imageonload){

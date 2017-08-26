@@ -24,10 +24,20 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
                 });
             });
 
+            console.log($scope.data)
+
+            var videos = [];
+            $scope.data.videos.forEach(function(video) {
+              var src = [{
+                src: $sce.trustAsResourceUrl(video.url),
+                type: "video/mp4"
+              }];
+  
+              videos.push(src)
+            });
+
             $scope.config = {
-                sources: [
-                  {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"}
-                ],
+                sources:videos,
                 theme: "node_modules/videogular-themes-default/videogular.css"
               };
 
