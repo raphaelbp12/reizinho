@@ -27,7 +27,7 @@
         
       </div>
 
-      <div id="institucional-bandas" class="gallery-item icone-video"
+      <div id="institucional-bandas" class="gallery-item icone-video" ng-if="gallerySelected.videos.length > 0"
       ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
       <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
       </div>
@@ -82,7 +82,7 @@
               </vg-controls>
           
               <vg-overlay-play></vg-overlay-play>
-              <vg-poster vg-url='data.videos[$index].cover'></vg-poster>
+              <vg-poster vg-url='gallerySelected.videos[$index].cover'></vg-poster>
             </videogular>
           
        </div>
@@ -96,5 +96,9 @@
     </div>
     <div class="ribbon-border"></div>
     <div class="text-nossasBandas">{{gallerySelected.description}}</div>
+    <div class="redes-sociais display-flex-all-centered">
+      <img ng-if="gallerySelected.facebook_link" ng-click="common.openLink(gallerySelected.facebook_link)" ng-src="{{general.imagem_fb}}" />
+      <img ng-if="gallerySelected.instagram_link" ng-click="common.openLink(gallerySelected.instagram_link)" ng-src="{{general.imagem_instagram}}" />
+    </div>
   </div>
 </div>

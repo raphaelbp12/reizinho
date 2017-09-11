@@ -5,7 +5,8 @@
       ng-src="{{common.calcYoutubeURL(item)}}">
     </iframe> -->
 
-    <videogular vg-player-ready="onPlayerReady($API, $index)" vg-update-state="changeState($state, $index)" vg-theme="config.theme">
+    <videogular vg-player-ready="onPlayerReady($API, $index)" vg-update-state="changeState($state, $index)" vg-theme="config.theme"
+    vg-auto-play="true" vg-update-volume="0">
         <vg-media vg-src="config.sources[$index]">
         </vg-media>
     

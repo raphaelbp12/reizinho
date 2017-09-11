@@ -2,27 +2,36 @@
     
 
 
-  <div class="ribbon">
-      <div class="text display-flex-all-centered">A REINEL</div>
-      <div class="redes-sociais display-flex-all-centered">
-        <img ng-click="common.openLink(general.facebook_link)" src="{{general.imagem_fb}}" />
-        <img ng-click="common.openLink(general.instagram_link)" src="{{general.imagem_instagram}}" />
-      </div>
-    <div class="border-bottom"></div>
-  </div>
+ 
 
   <div class="container centralizado  ">
       
 
-    <div class="ribbon-2">
+    <!-- <div class="ribbon-2">
       <div class="text display-flex-all-centered">POSICIONAMENTO</div>
       <div class="border-bottom"></div>
-    </div>
+    </div> -->
+
+    <div class="ribbon">
+      <div class="text display-flex-all-centered">A REINEL</div>
+      
+    <div class="border-bottom"></div>
+  </div>
     <div class="main">
 
         <div class="row">
 
-      <div class="col-md-7 text col-xs-12 " ng-bind-html="data.text">
+      <div class="col-md-7 text col-xs-12 ">
+        <div class="ribbon-2">
+          <div class="posicionamento display-flex-all-centered">POSICIONAMENTO</div>
+          <!-- <div class="border-bottom"></div> -->
+        </div>
+          
+        <div ng-bind-html="data.text" style="text-align: left; padding: 0 80px 0 80px"></div>
+        <div class="redes-sociais display-flex-all-centered">
+          <img ng-click="common.openLink(general.facebook_link)" src="{{general.imagem_fb}}" />
+          <img ng-click="common.openLink(general.instagram_link)" src="{{general.imagem_instagram}}" />
+        </div>
       </div>
 
       <div class="display-flex-all-centered div-missao-valores-visao  col-md-5 col-xs-12">

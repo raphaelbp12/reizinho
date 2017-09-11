@@ -28,7 +28,7 @@ angular.module('App').service('Common', ['DataService','$window', function (Data
       $window.open(link);
     };
 
-    self.calcGalleries = function(images,galleries){
+    self.calcGalleries = function(images,galleries, videos){
         images.forEach(function (image, indexImage) {
             var foundGallery = false;
             var cover = !!parseInt(image.cover);
@@ -37,7 +37,9 @@ angular.module('App').service('Common', ['DataService','$window', function (Data
                 url: self.calcURL(image.path, image.filename),
                 url_thumb: self.calcThumbURL(image.path, image.filename),
                 description: image.description,
-                alttext: image.alttext
+                alttext: image.alttext,
+                facebook_link: image.facebook_link,
+                instagram_link: image.instagram_link
             }
             galleries.forEach(function (gallery, indexGallery) {
                 if(gallery.name === image.title){
@@ -45,6 +47,9 @@ angular.module('App').service('Common', ['DataService','$window', function (Data
                     if (cover){
                       galleries[indexGallery].description = img.description
                       galleries[indexGallery].cover = img;
+                      //console.log("AAAA", img);
+                      galleries[indexGallery].facebook_link = img.facebook_link;
+                      galleries[indexGallery].instagram_link = img.instagram_link;
                     } else {
                       galleries[indexGallery].images.push(img);
                     }
@@ -57,13 +62,29 @@ angular.module('App').service('Common', ['DataService','$window', function (Data
                     name: image.title,
                     images: cover ? [] : [img],
                     cover: cover? img : null,
-                    description: cover ? image.description : ''
+                    description: cover ? image.description : '',
+                    videos: []
                 });
 
             }
+            
+            
 
         });
 
+        if(videos) self.calcVideos(videos, galleries);
+
         console.log("$scope.galleries", galleries);
+    };
+
+    self.calcVideos = function(videos,galleries){
+        videos.forEach(function (video, videoImage) {
+            galleries.forEach(function (gallery, indexGallery) {
+                if(gallery.name === video.galeria){
+                    foundGallery = true;
+                    galleries[indexGallery].videos.push(video);
+                }
+            });    
+        }); 
     };
 }]);

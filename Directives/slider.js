@@ -43,7 +43,8 @@ angular.module('App').directive("slider", ['DataService', 'Common',  function (D
 
             $scope.APIS_STATE = [];
             $scope.onPlayerReady = function(API, index) {
-            $scope.APIS_STATE[index] = API;
+                API.setVolume(0);
+                $scope.APIS_STATE[index] = API;
             }
 
             

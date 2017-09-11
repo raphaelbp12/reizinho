@@ -13,7 +13,7 @@
 
         
 
-        <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos track by $index' class="gallery-item"
+        <div id="{{gallery.id}}" title="{{gallery.name}}" ng-repeat='gallery in galleries_oQueFazemos track by $index' class="gallery-item"
         ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
         </div>
 

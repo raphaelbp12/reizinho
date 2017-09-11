@@ -7,7 +7,7 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
         controller: ['$scope', 'DataService', 'Common', 'ModalService', '$sce', function NossasBandasController($scope, DataService, Common, ModalService, $sce) {
             $scope.galleries_nossasBandas = [];
             $scope.common = Common;
-            Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas);
+            Common.calcGalleries($scope.data.galerias, $scope.galleries_nossasBandas, $scope.data.videos);
             $scope.gallerySelected = {};
 
             $scope.modalShow = false;
@@ -99,30 +99,47 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             // $scope.arrayLoaded = false;
             $scope.changeGallery = function (id) {
 
-                      $scope.galleries_nossasBandas.forEach(function (gallery, galleryIndex) {
-                        $('#container-galerias #'+gallery.id).removeClass('gallery-selected');
-                      });
-                      $('#institucional-bandas').removeClass('gallery-selected');
+                      
 
                       $scope.arrayLoaded = false;
                       $scope.videosLoaded = false;
 
                       if( (id != undefined)) {
-                        $('#container-galerias #'+id).addClass('gallery-selected');
+                        $scope.galleries_nossasBandas.forEach(function (gallery, galleryIndex) {
+                          $('#container-galerias #'+gallery.id).removeClass('gallery-selected');
+                        });
+                        $('#institucional-bandas').removeClass('gallery-selected');
+
+                        
                         $scope.gallerySelected = angular.copy($scope.galleries_nossasBandas[id]) ;
+                        $('#container-galerias #'+id).addClass('gallery-selected');
                       }else {
+                        console.log($scope.gallerySelected)
+                        $scope.gallerySelected.images = angular.copy($scope.gallerySelected.videos) ;
                         $('#institucional-bandas').addClass('gallery-selected');
-                        $scope.gallerySelected = {}
-                        $scope.gallerySelected.images = angular.copy($scope.data.videos);
                         $scope.videosLoaded = true;
+
+                        var videos = [];
+                        $scope.gallerySelected.videos.forEach(function(video) {
+                          var src = [{
+                            src: $sce.trustAsResourceUrl(video.url),
+                            type: "video/mp4"
+                          }];
+            
+                          videos.push(src)
+                        });
+  
+                        $scope.config = {
+                          sources: videos,
+                          theme: "node_modules/videogular-themes-default/videogular.css"
+                        };
                       }
                       $timeout(function(){
-                       $scope.arrayLoaded = true;
+                        $scope.arrayLoaded = true;
 
-                     },500);
+                      },500);
 
-
-
+                      
 
             };
 
@@ -132,20 +149,9 @@ angular.module('App').directive("nossasBandas", ['DataService', 'Common', '$time
             };
 
 
-            var videos = [];
-            $scope.data.videos.forEach(function(video) {
-              var src = [{
-                src: $sce.trustAsResourceUrl(video.url),
-                type: "video/mp4"
-              }];
+            
 
-              videos.push(src)
-            });
-
-            $scope.config = {
-              sources: videos,
-              theme: "node_modules/videogular-themes-default/videogular.css"
-            };
+            
 
             $scope.APIS_STATE = [];
             $scope.onPlayerReady = function(API, index) {

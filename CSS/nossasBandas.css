@@ -179,6 +179,13 @@
   background-position: 50%;
 }*/
 
+.nossasBandas .redes-sociais img+img {
+  margin-left: 10px;
+}
+.nossasBandas .redes-sociais {
+  margin-top: 20px;
+}
+
 
 @media (max-width: 992px) {
   .form-div{
