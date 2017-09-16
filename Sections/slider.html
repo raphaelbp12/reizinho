@@ -32,7 +32,7 @@
 
 
   <div ng-click="openLink(item.link)" general="general"
-  class='slider-item' ng-repeat='item in data.images' imageonload="{{calcURL(item.path, item.filename)}}">
+  class='slider-item' ng-repeat='item in data.images' ng-style="{'background-image': 'url({{calcURL(item.path, item.filename)}})'}">
   </div>
 
 
