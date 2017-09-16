@@ -5,7 +5,8 @@ angular.module('App').config(function($sceDelegateProvider) {
 angular.module('App').directive("slider", ['DataService', 'Common',  function (DataService, Common) {
     return {
         scope: {
-            data: '='
+            data: '=',
+            general: '='
         },
         controller: ['$scope', 'DataService', 'Common','$window', '$sce' , function SliderController($scope, DataService, Common, $window, $sce) {
             $scope.calcURL = Common.calcURL;

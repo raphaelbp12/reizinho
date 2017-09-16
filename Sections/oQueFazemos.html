@@ -6,15 +6,11 @@
     <div class="ribbon-border"></div>
     <div class="centralizado" style="width: 100%; flex-direction: row; position: relative;margin-bottom: 30px" id="container-galerias-fazemos">
       <slick  class="galerias-fazemos"  settings="slickGaleriasConfig">
-        <!-- <div id="{{gallery.id}}" ng-repeat='gallery in galleries_oQueFazemos' class="gallery-item"
-        ng-if="$index < galleries_oQueFazemos.length/2"
-        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
-        </div> -->
+        <div id="{{gallery.id}}" title="{{gallery.name}}" ng-repeat='gallery in galleries_oQueFazemos track by $index' class="gallery-item"
+        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" active-title="true" gallery-title="gallery.name" general="general" style="position: relative; margin-top: 20px;">
 
         
-
-        <div id="{{gallery.id}}" title="{{gallery.name}}" ng-repeat='gallery in galleries_oQueFazemos track by $index' class="gallery-item"
-        ng-click="changeGallery(gallery.id)" imageonload="{{gallery.cover.url}}" general="general">
+        
         </div>
 
       </slick>
@@ -22,9 +18,8 @@
       
     </div>
 
-    <div id="institucional-fazemos" class="gallery-item icone-video"
-    ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general">
-    <!-- style='background-image: url("{{gallery.cover.url}}")'> -->
+    <!-- <div id="institucional-fazemos" class="gallery-item icone-video"
+    ng-click="changeGallery()" imageonload="{{data.icone_video}}" general="general"> -->
     </div>
 
   <div class="slick-supporter" ng-class="{'slickSupportVideo' : videosLoaded}">
